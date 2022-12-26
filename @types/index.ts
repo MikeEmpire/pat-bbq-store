@@ -22,3 +22,8 @@ export interface IProduct {
   description: string;
   image: StaticImageData;
 }
+
+export interface CarouselButtonProps {
+  enabled: boolean;
+  onClick: () => void;
+}

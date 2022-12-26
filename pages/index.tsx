@@ -1,10 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import { EmblaOptionsType } from "embla-carousel-react";
 
 import styles from "../styles/Home.module.css";
 
+import Carousel from "../components/Carousel";
+
 export default function Home() {
+  const OPTIONS: EmblaOptionsType = {};
+  const SLIDE_COUNT = 3;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <>
       <Head>
@@ -24,7 +28,7 @@ export default function Home() {
         ></div>
       </Head>
       <main className={styles.main}>
-        <p className={styles.mainFont}>Get started by editing&nbsp;</p>
+        <Carousel slides={SLIDES} options={OPTIONS} />
       </main>
     </>
   );
