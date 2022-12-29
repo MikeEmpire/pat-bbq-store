@@ -64,7 +64,7 @@ function Carousel({ slides, options }: CarouselProps) {
         <div className={styles.embla__viewport} ref={emblaRef}>
           <div className={styles.embla__container}>{slidesContent}</div>
         </div>
-        <section className={styles.nav__container}>
+        <section className={styles.embla__nav__container}>
           <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
           <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
         </section>
