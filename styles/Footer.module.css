@@ -1,0 +1,32 @@
+.footer {
+  font-family: "Gilroy";
+}
+
+.footer span {
+  font-style: normal;
+  font-weight: 300;
+  font-size: medium;
+}
+
+.footer_header {
+  border-bottom: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  font-size: xx-large;
+  line-height: 58px;
+  padding: 1%;
+  padding-right: 10%;
+}
+
+.footer__address {
+  padding: 1%;
+  list-style: none;
+}
+
+.footer__address li {
+  margin-bottom: 1%;
+}

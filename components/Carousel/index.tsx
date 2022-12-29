@@ -65,8 +65,13 @@ function Carousel({ slides, options }: CarouselProps) {
           <div className={styles.embla__container}>{slidesContent}</div>
         </div>
         <section className={styles.embla__nav__container}>
-          <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-          <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+          <article className={styles.embla__text}>
+            <h6>P Train's BBQ Sauce</h6>
+          </article>
+          <article className={styles.embla__button__container}>
+            <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
+            <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+          </article>
         </section>
       </div>
     </>

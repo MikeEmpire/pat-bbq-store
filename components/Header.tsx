@@ -7,7 +7,13 @@ export default function Header() {
   return (
     <nav className={styles.nav__container}>
       <article className={styles.image__wrapper}>
-        <Image height={60} width={120} alt="custom logo" src="/logo.png" />
+        <Image
+          className={styles.logo}
+          height={60}
+          width={120}
+          alt="custom logo"
+          src="/logo.png"
+        />
       </article>
       <ul className={styles.nav__list}>
         <li>Home</li>
