@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "../styles/snipcart.css";
+import "../styles/Snipcart.module.css";
 import type { AppProps } from "next/app";
 
 import Layout from "../components/Layout";

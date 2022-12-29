@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { IProduct } from "../constants/types";
+import { IProduct } from "../@types";
 
 interface ProductProps {
   productToRender: IProduct;

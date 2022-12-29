@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-import { IProduct } from "../constants/types";
+import { IProduct } from "../@types";
 
 interface ProductListProps {
   products: Array<IProduct>;
