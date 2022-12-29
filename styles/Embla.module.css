@@ -138,24 +138,28 @@
   padding-bottom: 5%;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .embla {
     padding: 0;
     padding-left: 7%;
     padding-top: 10%;
+    flex-direction: column;
   }
   .embla__viewport {
-    height: 300px;
+    height: 60vh;
+    width: 100%;
   }
   .embla__button {
-    width: 40%;
+    width: 50px;
     height: auto;
   }
   .embla__nav__container {
-    width: 50%;
+    width: 100%;
     flex: auto;
     padding-bottom: 10%;
     padding-left: 0%;
     margin-left: 7%;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 }

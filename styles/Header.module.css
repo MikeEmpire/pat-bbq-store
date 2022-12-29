@@ -27,3 +27,9 @@
   height: auto;
   display: flex;
 }
+
+@media (max-width: 700px) {
+  .nav__list li {
+    display: none;
+  }
+}
