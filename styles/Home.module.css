@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  align-items: flex-start;
+  padding-left: 3%;
   min-height: 100vh;
+  padding-top: 5%;
 }
 
 .description {
@@ -259,9 +260,6 @@
   .grid {
     grid-template-columns: repeat(2, 50%);
   }
-  .main {
-    padding: 0;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -281,5 +279,11 @@
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 0;
   }
 }
