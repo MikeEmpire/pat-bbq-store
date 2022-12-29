@@ -259,6 +259,9 @@
   .grid {
     grid-template-columns: repeat(2, 50%);
   }
+  .main {
+    padding: 0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

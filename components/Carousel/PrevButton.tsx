@@ -14,7 +14,8 @@ function PrevButton({ enabled, onClick }: CarouselButtonProps) {
         className={styles.embla__button__svg}
         src="/right-arrow.png"
         alt="Next Arrow"
-        fill
+				width={100}
+				height={100}
         style={{ transform: "rotate(180deg)" }}
       />
     </button>

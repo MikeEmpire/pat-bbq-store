@@ -3,10 +3,14 @@
   --slide-size: 100%;
   --slide-height: 19rem;
   padding: 1.6rem;
+  display: flex;
+  flex-direction: row;
 }
 .embla__viewport {
   overflow: hidden;
+  height: 600px;
 }
+
 .embla__container {
   display: flex;
   flex-direction: row;
@@ -104,14 +108,11 @@
 .embla__button {
   z-index: 1;
   color: var(--background-site);
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 50%;
-  transform: translateY(-50%);
   cursor: pointer;
-  width: 4rem;
+  width: 50%;
   height: 4rem;
 }
 .embla__button--prev {
@@ -128,3 +129,14 @@
   height: 65%;
 }
 
+.embla__nav__container {
+  align-items: end;
+  display: flex;
+  flex: 1;
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+  .main {
+    padding: 0;
+  }
+}
