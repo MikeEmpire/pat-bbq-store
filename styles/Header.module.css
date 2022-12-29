@@ -1,0 +1,29 @@
+.nav__container {
+  align-items: center;
+  border-bottom: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  padding-right: 10%;
+}
+
+.image__wrapper {
+  padding: 20px;
+  margin-right: 10%;
+}
+
+.nav__list {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  list-style: none;
+  font-family: "Gilroy";
+  font-weight: 300;
+}
+
+.buy-link {
+  border-right: 1px solid white;
+  padding: 0 50px;
+  height: auto;
+  display: flex;
+}
