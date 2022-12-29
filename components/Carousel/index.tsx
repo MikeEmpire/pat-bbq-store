@@ -66,7 +66,7 @@ function Carousel({ slides, options }: CarouselProps) {
         </div>
         <section className={styles.embla__nav__container}>
           <article className={styles.embla__text}>
-            <h6>P Train's BBQ Sauce</h6>
+            <h6>P Train&apos;s BBQ Sauce</h6>
           </article>
           <article className={styles.embla__button__container}>
             <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
