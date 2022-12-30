@@ -133,7 +133,7 @@
 }
 
 .embla__nav__container {
-  align-items: end;
+  align-items: flex-end;
   display: flex;
   margin-left: 30%;
   padding-bottom: 15%;
