@@ -27,3 +27,8 @@ export interface CarouselButtonProps {
   enabled: boolean;
   onClick: () => void;
 }
+
+export interface PTrainMenuLink {
+  label: string;
+  link: string;
+}
