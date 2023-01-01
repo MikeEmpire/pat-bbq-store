@@ -29,20 +29,47 @@ const mobileNavStyles = {
 
 const linkVariants = {
   open: {
-    transition: { staggerChildren: 0.8, delayChildren: 0.9 },
+    transition: { staggerChildren: 0.8, delayChildren: 0.5 },
   },
   closed: {
-    transition: { staggerChildren: 0.5, staggerDirection: -2 },
+    transition: { staggerChildren: 0.5, staggerDirection: -1 },
   },
 };
 
-const linksToUse = links.map((l) => <li key={l.label}>{l.label}</li>);
+const listItemVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  },
+};
+
+const linksToUse = links.map((l) => (
+  <motion.li
+    variants={listItemVariants}
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    key={l.label}
+  >
+    {l.label}
+  </motion.li>
+));
 
 function Header() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   const handleHeaderClick = () => toggleOpen();
+  const menuText = isOpen ? "Close Menu" : "Menu";
 
   return (
     <nav className={styles.nav__container}>
@@ -63,7 +90,7 @@ function Header() {
         ref={containerRef}
         className={styles.mobile__nav}
       >
-        <header onClick={handleHeaderClick}>Menu</header>
+        <header onClick={handleHeaderClick}>{menuText}</header>
         <motion.article
           variants={mobileNavStyles}
           className={styles.nav__overlay}
