@@ -333,4 +333,7 @@
   .main {
     padding: 0;
   }
+  .about_us__container figcaption {
+    font-size: medium;
+  }
 }
