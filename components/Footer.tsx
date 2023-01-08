@@ -12,10 +12,6 @@ export default function Footer() {
       <article className={styles.footer__info_container}>
         <ul className={styles.footer__address}>
           <li>Find us at</li>
-          <li>8780 19th Street #215</li>
-          <li>Racho Cucamonga, California 91701</li>
-          <li>Phone: 909-994-7970</li>
-          <li>Fax: 909-980-7279</li>
         </ul>
         <ul className={styles.footer__social_icons}>
           <li>

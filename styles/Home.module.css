@@ -334,6 +334,7 @@
     padding: 0;
   }
   .about_us__container figcaption {
-    font-size: medium;
+    font-size: smaller;
+    line-height: 20px;
   }
 }
