@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { useState } from "react";
+
+import styles from "../../styles/Menu.module.css";
 
 function Menu() {
   return (
-    <div>
+    <div className={styles.menu__container}>
       <Image
         height={400}
         width={200}
