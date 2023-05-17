@@ -1,4 +1,5 @@
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import { motion, useAnimation, useAnimationControls } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
 import styles from "../../styles/Embla.module.css";
@@ -18,16 +19,29 @@ function Carousel({ slides, options }: CarouselProps) {
   const [nextBtnEnabled, toggleNextBtn] = useState<boolean>(false);
   const [selectedIndex, setIndex] = useState<number>(0);
   const [scrollSnaps, setScrollSnaps] = useState<Array<number>>([]);
+  const controls = useAnimationControls();
 
-  const scrollPrev = useCallback(
-    () => emblaApi && emblaApi.scrollPrev(),
-    [emblaApi]
-  );
+  const scrollPrev = useCallback(() => {
+    emblaApi && emblaApi.scrollPrev();
+    controls.start({
+      opacity: [0, 0.2, 0.6, 1],
+      x: [0, 50, 0],
+      transition: {
+        duration: 0.5,
+      },
+    });
+  }, [emblaApi, controls]);
 
-  const scrollNext = useCallback(
-    () => emblaApi && emblaApi.scrollNext(),
-    [emblaApi]
-  );
+  const scrollNext = useCallback(() => {
+    emblaApi && emblaApi.scrollNext();
+    controls.start({
+      opacity: [0, 0.2, 0.6, 1],
+      x: [0, -50, 0],
+      transition: {
+        duration: 0.5,
+      },
+    });
+  }, [emblaApi, controls]);
 
   const scrollTo = useCallback(
     (index: number) => emblaApi && emblaApi.scrollTo(index),
@@ -77,8 +91,10 @@ function Carousel({ slides, options }: CarouselProps) {
               <div className={styles.embla_nav__text} />{" "}
               <span style={{ color: "#858585" }}>0{slides.length}</span>
             </header>
-            <h5>P Train&apos;s BBQ Sauce</h5>
-            <h6>{slideCaptions[selectedIndex]}</h6>
+            <motion.h5 animate={controls}>P Train&apos;s BBQ Sauce</motion.h5>
+            <motion.h6 animate={controls}>
+              {slideCaptions[selectedIndex]}
+            </motion.h6>
           </article>
           <article className={styles.embla__button__container}>
             <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
