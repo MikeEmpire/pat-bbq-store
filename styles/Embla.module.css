@@ -163,11 +163,9 @@
   width: 100%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .embla {
-    padding: 0;
-    padding-left: 20%;
-    padding-top: 10%;
+    padding: 10%;
     flex-direction: column;
   }
   .embla__viewport {
@@ -185,14 +183,20 @@
   .embla__nav__container {
     width: 100%;
     flex: auto;
-    padding-bottom: 10%;
-    padding-left: 0%;
-    margin-left: 7%;
-    flex-direction: row;
-    justify-content: flex-end;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
   }
   .embla__text {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .embla__text h5 {
+    width: 100%;
+  }
+  .embla__text h6 {
+    width: 100%;
   }
 }
 
