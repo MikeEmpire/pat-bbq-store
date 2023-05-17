@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useCycle } from "framer-motion";
 
 import useDimensions from "../modules/useDimensions";
@@ -60,7 +61,7 @@ const linksToUse = links.map((l) => (
     whileTap={{ scale: 0.95 }}
     key={l.label}
   >
-    {l.label}
+    <Link href={l.link}>{l.label}</Link>
   </motion.li>
 ));
 
