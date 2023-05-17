@@ -1,11 +1,14 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { CarouselButtonProps } from "../../@types";
 
 import styles from "../../styles/Embla.module.css";
 
 function NextButton({ enabled, onClick }: CarouselButtonProps) {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
       className={`${styles.embla__button} ${styles["embla__button--next"]}`}
       onClick={onClick}
       disabled={!enabled}
@@ -13,11 +16,11 @@ function NextButton({ enabled, onClick }: CarouselButtonProps) {
       <Image
         className={styles.embla__button__svg}
         src="/right-arrow.png"
-				alt="Next Arrow"
+        alt="Next Arrow"
         width={100}
         height={100}
       />
-    </button>
+    </motion.button>
   );
 }
 

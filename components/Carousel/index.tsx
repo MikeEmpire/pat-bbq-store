@@ -58,6 +58,12 @@ function Carousel({ slides, options }: CarouselProps) {
     <Slide index={index} key={index} />
   ));
 
+  const slideCaptions: string[] = [
+    "Our juicy burgers are made from fresh, locally sourced beef and grilled to perfection. Add your favorite toppings for a delicious meal!",
+    "Our BBQ chicken is seasoned with our special blend of spices and slow-cooked over hickory wood for that authentic BBQ flavor.",
+    "Our pulled pork is smoked low and slow for hours, then hand-pulled and seasoned with out signature rib",
+  ];
+
   return (
     <>
       <div className={styles.embla}>
@@ -66,7 +72,13 @@ function Carousel({ slides, options }: CarouselProps) {
         </div>
         <section className={styles.embla__nav__container}>
           <article className={styles.embla__text}>
-            <h6>P Train&apos;s BBQ Sauce</h6>
+            <header className={styles.embla_text__header}>
+              0{selectedIndex + 1}
+              <div className={styles.embla_nav__text} />{" "}
+              <span style={{ color: "#858585" }}>0{slides.length}</span>
+            </header>
+            <h5>P Train&apos;s BBQ Sauce</h5>
+            <h6>{slideCaptions[selectedIndex]}</h6>
           </article>
           <article className={styles.embla__button__container}>
             <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />

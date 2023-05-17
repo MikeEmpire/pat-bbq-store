@@ -5,7 +5,8 @@
   padding: 0;
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 100%;
+  justify-content: space-around;
 }
 .embla__viewport {
   overflow: hidden;
@@ -135,18 +136,26 @@
 .embla__nav__container {
   align-items: flex-end;
   display: flex;
-  margin-left: 30%;
   padding-bottom: 15%;
   flex-direction: column;
   justify-content: space-between;
 }
-.embla__text h6 {
+.embla__text h5 {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 200;
   font-size: 32px;
   width: 300px;
   line-height: 47px;
+}
+
+.embla__text h6 {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 300;
+  font-size: medium;
+  line-height: 2em;
+  width: 30em;
 }
 
 .embla__button__container {
@@ -185,4 +194,22 @@
   .embla__text {
     display: none;
   }
+}
+
+.embla_nav__text {
+  background-color: white;
+  height: 1px;
+  margin: 0 3%;
+  width: 30%;
+}
+
+.embla_text__header {
+  align-items: center;
+  display: flex;
+  font-family: "Gilroy";
+  margin: 5% 0;
+}
+
+.embla_text__container {
+  padding: 0 2%;
 }
