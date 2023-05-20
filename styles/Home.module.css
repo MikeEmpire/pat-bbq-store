@@ -319,7 +319,7 @@
   font-family: "Gilroy-Bold";
   font-style: normal;
   font-weight: 400;
-  font-size: larger;
+  font-size: x-large;
   line-height: 30px;
   text-align: center;
   color: #e89898;
@@ -396,8 +396,17 @@
     padding: 0;
   }
   .about_us__container figcaption {
-    font-size: smaller;
+    font-size: medium;
     line-height: 20px;
     padding-left: 0;
+  }
+  .section__container h6 {
+    font-size: medium;
+  }
+  .menu__figure figcaption {
+    font-size: medium;
+  }
+  .about_us__header {
+    font-size: larger;
   }
 }

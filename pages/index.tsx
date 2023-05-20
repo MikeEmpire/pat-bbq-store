@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import Image from "next/image";
 import Script from "next/script";
 import { EmblaOptionsType } from "embla-carousel-react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import styles from "../styles/Home.module.css";
 
@@ -9,10 +12,49 @@ import Carousel from "../components/Carousel";
 
 import patImg from "../public/pat.png";
 
+const boxVariant = {
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  hidden: { opacity: 0, y: -50 },
+};
+
 export default function Home() {
   const OPTIONS: EmblaOptionsType = {};
   const SLIDE_COUNT = 3;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+  const control = useAnimation();
+  const imageControl = useAnimation();
+  const menuControl = useAnimation();
+  const bookUsControl = useAnimation();
+  const contactFormControl = useAnimation();
+  const [ref, inView] = useInView();
+  const [imageRef, isImageInView] = useInView();
+  const [menuRef, isMenuInView] = useInView();
+  const [bookUsRef, isBookUsInView] = useInView();
+  const [contactFormRef, isContactFormInView] = useInView();
+  useEffect(() => {
+    inView ? control.start("visible") : control.start("hidden");
+    isMenuInView ? menuControl.start("visible") : menuControl.start("hidden");
+    isContactFormInView
+      ? contactFormControl.start("visible")
+      : contactFormControl.start("hidden");
+    isBookUsInView
+      ? bookUsControl.start("visible")
+      : bookUsControl.start("hidden");
+    isImageInView
+      ? imageControl.start("visible")
+      : imageControl.start("hidden");
+  }, [
+    bookUsControl,
+    contactFormControl,
+    control,
+    imageControl,
+    inView,
+    isBookUsInView,
+    isContactFormInView,
+    isImageInView,
+    isMenuInView,
+    menuControl,
+  ]);
   return (
     <>
       <section className={styles.main}>
@@ -23,14 +65,34 @@ export default function Home() {
         />
         <Carousel slides={SLIDES} options={OPTIONS} />
         <section className={styles.about_us__container}>
-          <header className={styles.container__header}>About Us</header>
-          <h4 className={styles.about_us__header}>
+          <motion.header
+            variants={boxVariant}
+            initial="hidden"
+            animate={control}
+            ref={ref}
+            className={styles.container__header}
+          >
+            About Us
+          </motion.header>
+          <motion.h4
+            className={styles.about_us__header}
+            initial="hidden"
+            variants={boxVariant}
+            animate={control}
+            ref={ref}
+          >
             For us, P Train&#39;s BBQ is a legacy that is an honor to represent.
             What started as Pat “Ptrain” Patterson&#39;s dream of serving real
             wood smoked pizzas, his original bbq sauces and the perfect Tri Tip
             sandwich has turned into so much more.{" "}
-          </h4>
-          <figure className={styles.history__container}>
+          </motion.h4>
+          <motion.figure
+            ref={imageRef}
+            animate={imageControl}
+            initial="hidden"
+            variants={boxVariant}
+            className={styles.history__container}
+          >
             <header className={styles.history__header}>Our History</header>
             <Image
               src={patImg}
@@ -47,9 +109,15 @@ export default function Home() {
               We worked at festivals, lunches, weddings, football games,
               conventions… learning the invaluable skills he left us with.{" "}
             </figcaption>
-          </figure>
+          </motion.figure>
         </section>
-        <section className={styles.section__container}>
+        <motion.section
+          variants={boxVariant}
+          initial="hidden"
+          animate={menuControl}
+          ref={menuRef}
+          className={styles.section__container}
+        >
           <header className={styles.container__header}>Menu</header>
           <h6>
             If you&#39;re looking for mouth-watering barbecue that&#39;s sure to
@@ -79,8 +147,12 @@ export default function Home() {
               take your taste buds to the next level.
             </figcaption>
           </figure>
-        </section>
-        <section
+        </motion.section>
+        <motion.section
+          ref={bookUsRef}
+          variants={boxVariant}
+          initial="hidden"
+          animate={bookUsControl}
           className={styles.section__container}
           style={{ padding: "0 6%", textAlign: "center" }}
         >
@@ -95,11 +167,17 @@ export default function Home() {
             seamless as possible. By filling out the contact form, you&#39;ll be
             taking the first step toward a delicious and stress-free event.
           </h6>
-        </section>
-        <section className={styles.section__container}>
+        </motion.section>
+        <motion.section
+          ref={contactFormRef}
+          variants={boxVariant}
+          initial="hidden"
+          animate={contactFormControl}
+          className={styles.section__container}
+        >
           <header className={styles.container__header}>Get in touch</header>
           <ContactForm />
-        </section>
+        </motion.section>
       </section>
       <Script src="https://cdn.snipcart.com/themes.v3.2.0/default/snipcart.js" />
     </>
