@@ -15,7 +15,7 @@ function useQuery(query: string): boolean {
     return () => {
       m.removeEventListener("change", handleChange);
     };
-  }, []);
+  }, [query]);
 
   return !matches;
 }
