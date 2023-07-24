@@ -34,3 +34,15 @@ export const links: Array<PTrainMenuLink> = [
     link: "#",
   },
 ];
+
+export const CAROUSEL_IMAGES: string[] = [
+  "https://allesimages.s3.us-west-1.amazonaws.com/image_67221249.JPG",
+  "https://allesimages.s3.us-west-1.amazonaws.com/image_16863745.JPG",
+  "https://allesimages.s3.us-west-1.amazonaws.com/image_50437889.JPG",
+  "https://allesimages.s3.us-west-1.amazonaws.com/image_6483441.JPG",
+  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5060.jpg",
+  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5061.jpg",
+  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5062.jpeg",
+  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5063.jpeg",
+  "https://allesimages.s3.us-west-1.amazonaws.com/IMG-4367.jpg",
+]
