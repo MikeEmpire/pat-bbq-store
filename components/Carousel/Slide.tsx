@@ -2,14 +2,14 @@ import Image from "next/image";
 
 import styles from "../../styles/Embla.module.css";
 
-import imageByIndex from "../../modules/imageByIndex";
+import { CAROUSEL_IMAGES } from "../../constants";
 
 interface SlideProps {
   index: number;
 }
+
 function Slide({ index }: SlideProps) {
-  const imageData = imageByIndex(index);
-  const { src } = imageData;
+  const src = CAROUSEL_IMAGES[index] 
   return (
     <div className={styles.embla__slide}>
       <div className={styles.embla__slide__number}>
