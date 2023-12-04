@@ -269,7 +269,6 @@
 .container__header {
   font-style: italic;
   font-weight: 800;
-  font-size: xx-large;
   line-height: 58px;
   border-bottom: 1px solid;
   margin: 0 30%;
@@ -334,7 +333,6 @@
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 500;
-  font-size: x-large;
   line-height: 30px;
   text-align: center;
   color: #e89898;
@@ -346,8 +344,6 @@
   align-items: center;
 }
 .about_us__container figure img {
-  width: 50%;
-  height: 30%;
   margin: 11% 0;
 }
 

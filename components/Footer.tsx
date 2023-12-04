@@ -8,13 +8,8 @@ export default function Footer() {
       <header className={styles.footer_header}>Contact Us</header>
       <section className={styles.footer_info_outer__container}>
         <article className={styles.footer_info__container}>
-          <h6>Find us at</h6>
-          <h6>
-            8780 19th Street #215 <br />
-            Rancho Cucamonga, California 91701
-          </h6>
-          <h6>Phone: 909-994-7970</h6>
-          <h6>Fax: 909-980-7279</h6>
+          <h6>For inquiries, call us at</h6>
+          <h6>Phone: 951-772-3910</h6>
         </article>
         <article
           className={styles.footer_info__container}
