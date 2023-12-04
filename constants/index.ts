@@ -15,10 +15,11 @@ export const links: Array<PTrainMenuLink> = [
   },
   {
     label: "Menu",
-    link: "/menu",
+    link: "/#homemenu",
   },
   {
     label: "Book Us",
+<<<<<<< HEAD
     link: "/bookus",
   },
   {
@@ -28,6 +29,17 @@ export const links: Array<PTrainMenuLink> = [
   {
     label: "Contact",
     link: "/contact",
+=======
+    link: "/#bookus",
+  },
+  {
+    label: "About Us",
+    link: "/#about",
+  },
+  {
+    label: "Contact",
+    link: "/#homecontact",
+>>>>>>> f1be080 (updated images and added tailwind for responsive design. Also updated nav links)
   },
   {
     label: "Shop (coming soon)",
