@@ -54,22 +54,24 @@ const listItemVariants = {
   },
 };
 
-const linksToUse = links.map((l) => (
-  <motion.li
-    variants={listItemVariants}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-    key={l.label}
-  >
-    <Link href={l.link}>{l.label}</Link>
-  </motion.li>
-));
-
 function Header() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   const handleHeaderClick = () => toggleOpen();
+  const linksToUse = links.map((l) => (
+    <motion.li
+      variants={listItemVariants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      key={l.label}
+      onClick={() => {
+        toggleOpen();
+      }}
+    >
+      <Link href={l.link}>{l.label}</Link>
+    </motion.li>
+  ));
   const menuText = isOpen ? "Close Menu" : "Menu";
 
   return (
