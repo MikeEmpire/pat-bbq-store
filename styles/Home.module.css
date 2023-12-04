@@ -312,21 +312,16 @@
 }
 
 .menu__figure figcaption {
-  line-height: 19px;
   font-family: "Gilroy";
   margin-left: 2%;
   font-style: normal;
   font-weight: 400;
-  font-size: large;
-  line-height: 20px;
 }
 
 .section__container h6 {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 400;
-  font-size: large;
-  line-height: 20px;
 }
 
 .about_us__header {
@@ -350,7 +345,6 @@
 .about_us__container figcaption {
   font-style: normal;
   font-weight: 400;
-  font-size: larger;
   line-height: 29px;
   padding-left: 50px;
   margin-bottom: 40px;
