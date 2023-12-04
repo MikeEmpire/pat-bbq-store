@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 
 import styles from "../../styles/Embla.module.css";
 
@@ -9,13 +9,13 @@ interface SlideProps {
 }
 
 function Slide({ index }: SlideProps) {
-  const src = CAROUSEL_IMAGES[index] 
+  const src = CAROUSEL_IMAGES[index];
   return (
     <div className={styles.embla__slide}>
       <div className={styles.embla__slide__number}>
         <span>{index + 1}</span>
       </div>
-      <Image
+      <img
         className={styles.embla__slide__img}
         src={src}
         alt="slide image"

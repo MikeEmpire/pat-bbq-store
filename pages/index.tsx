@@ -65,7 +65,7 @@ export default function Home(): JSX.Element {
           data-api-key="YWIwNzE5ZjYtMGE0Mi00YTc3LTgzNjQtZDg5ZDg5YTEzOWNjNjM3MjYyMDkxNzk5NzgwNzY2"
         />
         <Carousel slides={SLIDES} options={OPTIONS} />
-        <section className={styles.about_us__container}>
+        <section id="about" className={styles.about_us__container}>
           <motion.header
             variants={boxVariant}
             initial="hidden"
@@ -76,7 +76,7 @@ export default function Home(): JSX.Element {
             About Us
           </motion.header>
           <motion.h4
-            className={styles.about_us__header}
+            className={`${styles.about_us__header} text-3xl`}
             initial="hidden"
             variants={boxVariant}
             animate={control}
@@ -114,6 +114,7 @@ export default function Home(): JSX.Element {
         <motion.section
           variants={boxVariant}
           initial="hidden"
+          id="homemenu"
           animate={menuControl}
           ref={menuRef}
           className={styles.section__container}
@@ -149,6 +150,7 @@ export default function Home(): JSX.Element {
           </figure>
         </motion.section>
         <motion.section
+          id="homebookus"
           ref={bookUsRef}
           variants={boxVariant}
           initial="hidden"
@@ -169,6 +171,7 @@ export default function Home(): JSX.Element {
           </h6>
         </motion.section>
         <motion.section
+          id="homecontact"
           ref={contactFormRef}
           variants={boxVariant}
           initial="hidden"
@@ -179,12 +182,7 @@ export default function Home(): JSX.Element {
           <ContactForm />
         </motion.section>
       </section>
-      <Script src="https://cdn.snipcart.com/themes.v3.2.0/default/snipcart.js" />
-      <Script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      />
+      <Script type="text/css" src="https://cdn.tailwindcss.com" />
     </>
   );
 }
