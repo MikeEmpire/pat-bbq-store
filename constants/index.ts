@@ -36,13 +36,12 @@ export const links: Array<PTrainMenuLink> = [
 ];
 
 export const CAROUSEL_IMAGES: string[] = [
-  "/slide-1.jpeg",
-  "https://allesimages.s3.us-west-1.amazonaws.com/image_16863745.JPG",
-  "https://allesimages.s3.us-west-1.amazonaws.com/image_50437889.JPG",
-  "https://allesimages.s3.us-west-1.amazonaws.com/image_6483441.JPG",
-  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5060.jpg",
-  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5061.jpg",
-  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5062.jpeg",
-  "https://allesimages.s3.us-west-1.amazonaws.com/IMG_5063.jpeg",
-  "https://allesimages.s3.us-west-1.amazonaws.com/IMG-4367.jpg",
+  "/new-slide-1.jpg",
+  "/new-slide-2.jpg",
+  "/new-slide-3.jpg",
+  "/new-slide-4.jpg",
+  "/new-slide-5.jpg",
+  "/new-slide-6.jpg",
+  "/new-slide-7.jpg",
+  "/new-slide-8.jpg",
 ]
