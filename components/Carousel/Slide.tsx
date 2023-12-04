@@ -10,6 +10,8 @@ interface SlideProps {
 
 function Slide({ index }: SlideProps) {
   const src = CAROUSEL_IMAGES[index];
+  const imgStyle =
+    index !== 6 ? { width: "100%" } : { width: "100%", height: "auto" };
   return (
     <div className={styles.embla__slide}>
       <div className={styles.embla__slide__number}>
@@ -20,8 +22,7 @@ function Slide({ index }: SlideProps) {
         src={src}
         alt="slide image"
         width={300}
-        height={600}
-        style={{ width: "100%", height: "auto" }}
+        style={imgStyle}
       />
     </div>
   );
