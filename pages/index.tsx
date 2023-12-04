@@ -22,7 +22,7 @@ const boxVariant = {
 
 export default function Home() {
   const OPTIONS: EmblaOptionsType = {};
-  const SLIDE_COUNT = 3;
+  const SLIDE_COUNT = 8;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   const control = useAnimation();
   const imageControl = useAnimation();
