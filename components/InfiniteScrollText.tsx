@@ -8,9 +8,9 @@ interface InfiniteScrollTextProps {
 const InfiniteScrollText = ({ text }: InfiniteScrollTextProps): JSX.Element => {
   return (
     <div className={styles.animated_text_strip}>
-      <span className={styles.marquee}>Book With Us!&nbsp;</span>
-      <span className={styles.marquee}>Book With Us!&nbsp;</span>
-      <span className={styles.marquee}>Book With Us!&nbsp;</span>
+      <span className={styles.marquee}>{text}&nbsp;</span>
+      <span className={styles.marquee}>{text}&nbsp;</span>
+      <span className={styles.marquee}>{text}&nbsp;</span>
     </div>
   );
 };
