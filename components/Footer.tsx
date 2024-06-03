@@ -16,10 +16,10 @@ export default function Footer() {
           style={{ display: "flex", gap: "19px", marginBottom: "10px" }}
         >
           <Image
-            width={27}
+            width={34}
             height={34}
-            src="/twitter-icon.png"
-            alt="twitter link"
+            src="/yelp-logo.png"
+            alt="Yelp Link to P trains bbq"
           />
           <Image
             width={27}
