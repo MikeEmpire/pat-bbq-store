@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import Script from "next/script";
 import { EmblaOptionsType } from "embla-carousel-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -76,7 +75,7 @@ export default function Home(): JSX.Element {
             About Us
           </motion.header>
           <motion.h4
-            className={`${styles.about_us__header} text-3xl`}
+            className={`${styles.about_us__header} md:text-3xl sm:text-lg`}
             initial="hidden"
             variants={boxVariant}
             animate={control}
@@ -119,7 +118,9 @@ export default function Home(): JSX.Element {
           ref={menuRef}
           className={styles.section__container}
         >
-          <header className={styles.container__header}>Menu</header>
+          <header className={`${styles.container__header} text-4xl`}>
+            Menu
+          </header>
           <h6>
             If you&#39;re looking for mouth-watering barbecue that&#39;s sure to
             satisfy your cravings, look no further than P Trains BBQ. Our
@@ -127,7 +128,7 @@ export default function Home(): JSX.Element {
             hosting a backyard cookout, corporate event, or wedding reception.
           </h6>
           <br />
-          <figure className={styles.menu__figure}>
+          <figure className={`${styles.menu__figure} sm:flex-col flex md:flex-row`}>
             <Image
               height={400}
               width={200}
@@ -178,11 +179,12 @@ export default function Home(): JSX.Element {
           animate={contactFormControl}
           className={styles.section__container}
         >
-          <header className={styles.container__header}>Get in touch</header>
+          <header className={`${styles.container__header} text-4xl`}>
+            Get in touch
+          </header>
           <ContactForm />
         </motion.section>
       </section>
-      <Script type="text/css" src="https://cdn.tailwindcss.com" />
     </>
   );
 }
