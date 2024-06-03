@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { EmblaOptionsType } from "embla-carousel-react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox";
 
 import styles from "../styles/Home.module.css";
+import "yet-another-react-lightbox/styles.css";
 
 import ContactForm from "../components/ContactForm";
 import Carousel from "../components/Carousel";
@@ -26,6 +30,7 @@ export default function Home(): JSX.Element {
   const menuControl = useAnimation();
   const bookUsControl = useAnimation();
   const contactFormControl = useAnimation();
+  const [isLightboxOpen, toggleLightbox] = React.useState<boolean>(false);
   const [ref, inView] = useInView();
   const [imageRef, isImageInView] = useInView();
   const [menuRef, isMenuInView] = useInView();
@@ -55,6 +60,12 @@ export default function Home(): JSX.Element {
     isMenuInView,
     menuControl,
   ]);
+  const openLightbox = (): void => {
+    toggleLightbox(true);
+  };
+  const closeLightbox = (): void => {
+    toggleLightbox(false);
+  };
   return (
     <>
       <section className={styles.main}>
@@ -121,21 +132,33 @@ export default function Home(): JSX.Element {
           <header className={`${styles.container__header} text-4xl`}>
             Menu
           </header>
-          <h6>
+          <h6 className="md:text-3xl">
             If you&#39;re looking for mouth-watering barbecue that&#39;s sure to
             satisfy your cravings, look no further than P Trains BBQ. Our
             catering services are perfect for any occasion, whether you&#39;re
             hosting a backyard cookout, corporate event, or wedding reception.
           </h6>
           <br />
-          <figure className={`${styles.menu__figure} sm:flex-col flex md:flex-row`}>
+          <figure
+            className={`${styles.menu__figure} flex md:flex-row flex-col`}
+          >
             <Image
               height={400}
               width={200}
+              onClick={openLightbox}
               alt="P Train's BBQ Menu"
               src="/CateringMenu.jpg"
+              className="mb-5 md:mb-0 md:w-10/12"
             />
-            <figcaption>
+            <>
+              <Lightbox
+                open={isLightboxOpen}
+                plugins={[Zoom]}
+                close={closeLightbox}
+                slides={[{ src: "/CateringMenu.jpg" }]}
+              />
+            </>
+            <figcaption className="md:text-3xl">
               At P Trains BBQ, we take pride in using only the highest quality
               ingredients and traditional smoking techniques to create our
               delicious meats. From succulent pulled pork and tender brisket to
