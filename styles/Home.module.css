@@ -285,7 +285,7 @@
 
 .section__container {
   display: flex;
-  font-family: 'Gilroy';
+  font-family: "Gilroy";
   flex-direction: column;
   width: 100%;
   margin-bottom: 15%;
@@ -308,28 +308,21 @@
 }
 
 .menu__figure figcaption {
-  line-height: 19px;
   font-family: "Gilroy";
   margin-left: 2%;
   font-style: normal;
   font-weight: 400;
-  font-size: large;
-  line-height: 20px;
 }
 
 .section__container h6 {
   font-family: "Gilroy";
   font-style: normal;
   font-weight: 400;
-  font-size: large;
-  line-height: 20px;
 }
 
 .about_us__header {
   font-style: normal;
-  font-weight: 400;
-  font-size: x-large;
-  line-height: 30px;
+  font-weight: 500;
   text-align: center;
   color: #e89898;
   margin-bottom: 8%;
@@ -340,16 +333,12 @@
   align-items: center;
 }
 .about_us__container figure img {
-  width: 50%;
-  height: 30%;
   margin: 11% 0;
 }
 
 .about_us__container figcaption {
   font-style: normal;
   font-weight: 400;
-  font-size: larger;
-  line-height: 29px;
   padding-left: 50px;
   margin-bottom: 40px;
 }

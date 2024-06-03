@@ -180,6 +180,11 @@ export default function Home(): JSX.Element {
         </motion.section>
       </section>
       <Script src="https://cdn.snipcart.com/themes.v3.2.0/default/snipcart.js" />
+      <Script
+        type="text/javascript"
+        src="https://assets.calendly.com/assets/external/widget.js"
+        async
+      />
     </>
   );
 }
