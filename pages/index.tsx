@@ -11,13 +11,14 @@ import ContactForm from "../components/ContactForm";
 import Carousel from "../components/Carousel";
 
 import patImg from "../public/pat.png";
+import InfiniteScrollText from "../components/InfiniteScrollText";
 
 const boxVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   hidden: { opacity: 0, y: -50 },
 };
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const OPTIONS: EmblaOptionsType = {};
   const SLIDE_COUNT = 3;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
@@ -70,7 +71,7 @@ export default function Home() {
             initial="hidden"
             animate={control}
             ref={ref}
-            className={styles.container__header}
+            className={`${styles.container__header} mb-8 text-4xl`}
           >
             About Us
           </motion.header>
@@ -93,22 +94,21 @@ export default function Home() {
             variants={boxVariant}
             className={styles.history__container}
           >
-            <header className={styles.history__header}>Our History</header>
-            <Image
-              src={patImg}
-              alt="Pat Front Profile"
-              width={300}
-              height={300}
-            />
-            <figcaption>
-              When our dad was diagnosed and shortly later passed away from
-              cancer suddenly in 2021, it was a no-brainer to continue that
-              dream. I&#39;ve been smoking BBQ since I was 11, early
-              mornings-late nights with my dad. He taught us that with hard
-              work, patience and love you can achieve any dream that you have.
-              We worked at festivals, lunches, weddings, football games,
-              conventions… learning the invaluable skills he left us with.{" "}
-            </figcaption>
+            <header className={`${styles.history__header} text-4xl`}>
+              Our History
+            </header>
+            <figure className="flex flex-row items-center justify-center">
+              <Image src={patImg} alt="Pat Front Profile" className="w-5/12" />
+              <figcaption className="md:text-3xl sm:text-lg">
+                When our dad was diagnosed and shortly later passed away from
+                cancer suddenly in 2021, it was a no-brainer to continue that
+                dream. I&#39;ve been smoking BBQ since I was 11, early
+                mornings-late nights with my dad. He taught us that with hard
+                work, patience and love you can achieve any dream that you have.
+                We worked at festivals, lunches, weddings, football games,
+                conventions… learning the invaluable skills he left us with.{" "}
+              </figcaption>
+            </figure>
           </motion.figure>
         </section>
         <motion.section
@@ -156,7 +156,7 @@ export default function Home() {
           className={styles.section__container}
           style={{ padding: "0 6%", textAlign: "center" }}
         >
-          <header className={styles.container__header}>Book Us</header>
+          <InfiniteScrollText text="Book Us" />
           <h6>
             If you&#39;re ready to book P Trains BBQ for your upcoming event, or
             if you have any questions about our catering services, we&#39;d love
