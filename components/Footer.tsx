@@ -5,11 +5,10 @@ import styles from "../styles/Footer.module.css";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <header className={styles.footer_header}>Contact Us</header>
       <section className={styles.footer_info_outer__container}>
         <article className={styles.footer_info__container}>
-          <h6>For inquiries, call us at</h6>
-          <h6>Phone: 951-772-3910</h6>
+          <h6 className="text-xl">For inquiries, call us at</h6>
+          <h6 className="text-xl">Phone: 951-772-3910</h6>
         </article>
         <article
           className={styles.footer_info__container}

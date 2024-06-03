@@ -86,7 +86,7 @@ export default function Home(): JSX.Element {
             About Us
           </motion.header>
           <motion.h4
-            className={`${styles.about_us__header} md:text-3xl sm:text-lg`}
+            className={`${styles.about_us__header} md:text-3xl sm:text-lg px-3 sm:p-0`}
             initial="hidden"
             variants={boxVariant}
             animate={control}
@@ -107,7 +107,7 @@ export default function Home(): JSX.Element {
             <header className={`${styles.history__header} text-4xl`}>
               Our History
             </header>
-            <figure className="flex flex-row items-center justify-center">
+            <figure className="flex md:flex-row items-center justify-center gap-5">
               <Image src={patImg} alt="Pat Front Profile" className="w-5/12" />
               <figcaption className="md:text-3xl sm:text-lg">
                 When our dad was diagnosed and shortly later passed away from
@@ -129,9 +129,7 @@ export default function Home(): JSX.Element {
           ref={menuRef}
           className={styles.section__container}
         >
-          <header className={`${styles.container__header} text-4xl`}>
-            Menu
-          </header>
+          <InfiniteScrollText text="Check Out the Menu!" />
           <h6 className="md:text-3xl">
             If you&#39;re looking for mouth-watering barbecue that&#39;s sure to
             satisfy your cravings, look no further than P Trains BBQ. Our
@@ -182,8 +180,8 @@ export default function Home(): JSX.Element {
           className={styles.section__container}
           style={{ padding: "0 6%", textAlign: "center" }}
         >
-          <InfiniteScrollText text="Book Us" />
-          <h6>
+          <InfiniteScrollText text="Book With Us!" />
+          <h6 className="text-3xl">
             If you&#39;re ready to book P Trains BBQ for your upcoming event, or
             if you have any questions about our catering services, we&#39;d love
             to hear from you! Simply fill out the contact form below and one of
@@ -193,18 +191,6 @@ export default function Home(): JSX.Element {
             seamless as possible. By filling out the contact form, you&#39;ll be
             taking the first step toward a delicious and stress-free event.
           </h6>
-        </motion.section>
-        <motion.section
-          id="homecontact"
-          ref={contactFormRef}
-          variants={boxVariant}
-          initial="hidden"
-          animate={contactFormControl}
-          className={styles.section__container}
-        >
-          <header className={`${styles.container__header} text-4xl`}>
-            Get in touch
-          </header>
           <ContactForm />
         </motion.section>
       </section>
