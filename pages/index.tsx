@@ -102,7 +102,7 @@ export default function Home(): JSX.Element {
             <header className={`${styles.history__header} text-4xl`}>
               Our History
             </header>
-            <figure className="flex md:flex-row items-center justify-center gap-5">
+            <figure className="flex md:flex-row flex-col items-center justify-center gap-5">
               <Image src={patImg} alt="Pat Front Profile" className="w-5/12" />
               <figcaption className="md:text-3xl sm:text-lg">
                 When our dad was diagnosed and shortly later passed away from
