@@ -69,11 +69,6 @@ export default function Home(): JSX.Element {
   return (
     <>
       <section className={styles.main}>
-        <div
-          hidden
-          id="snipcart"
-          data-api-key="YWIwNzE5ZjYtMGE0Mi00YTc3LTgzNjQtZDg5ZDg5YTEzOWNjNjM3MjYyMDkxNzk5NzgwNzY2"
-        />
         <Carousel slides={SLIDES} options={OPTIONS} />
         <section id="about" className={styles.about_us__container}>
           <motion.header
