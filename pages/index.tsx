@@ -12,9 +12,9 @@ import "yet-another-react-lightbox/styles.css";
 
 import ContactForm from "../components/ContactForm";
 import Carousel from "../components/Carousel";
+import InfiniteScrollText from "../components/InfiniteScrollText";
 
 import patImg from "../public/pat.png";
-import InfiniteScrollText from "../components/InfiniteScrollText";
 
 const boxVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
