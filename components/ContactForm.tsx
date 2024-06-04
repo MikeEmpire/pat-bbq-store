@@ -61,7 +61,6 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="flex items-center justify-center min-h-min">
       <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
         <div className="mb-6">
@@ -75,27 +74,10 @@ const ContactForm: React.FC = () => {
             name="name"
             value={name}
             className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
-=======
-    <div>
-      <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
-        <div className="mb-6">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-white-700"
-          >
-            Your Name Here
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            className="w-full border-b-2 border-gray-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
->>>>>>> 6d041ea (updated contact form)
           />
         </div>
 
         <div className="mb-6">
-<<<<<<< HEAD
           <input
             placeholder="Email"
             value={email}
@@ -119,24 +101,10 @@ const ContactForm: React.FC = () => {
             id="phoneNumber"
             name="phoneNumber"
             className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
-=======
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-white-700"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="w-full border-b-2 border-gray-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
->>>>>>> 6d041ea (updated contact form)
           />
         </div>
 
         <div className="mb-6">
-<<<<<<< HEAD
           <textarea
             placeholder="Enter a message"
             value={message}
@@ -160,25 +128,6 @@ const ContactForm: React.FC = () => {
             disabled={!isReady}
             onClick={handleConfirm}
             type="button"
-=======
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-white-700"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            className="w-full border-b-2 border-gray-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
-          ></textarea>
-        </div>
-
-        <div className="flex justify-end">
-          <button
-            type="submit"
->>>>>>> 6d041ea (updated contact form)
             className="bg-indigo-500 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Send
