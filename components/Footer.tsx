@@ -14,24 +14,33 @@ export default function Footer() {
           className={styles.footer_info__container}
           style={{ display: "flex", gap: "19px", marginBottom: "10px" }}
         >
-          <Image
-            width={34}
-            height={34}
-            src="/yelp-logo.png"
-            alt="Yelp Link to P trains bbq"
-          />
-          <Image
-            width={27}
-            height={34}
-            src="/instagram-icon.png"
-            alt="instagram link"
-          />
-          <Image
-            width={27}
-            height={34}
-            src="/facebook-icon.png"
-            alt="facebook link"
-          />
+          <a
+            href="https://www.yelp.com/biz/ptrains-california-bbq-rancho-cucamonga-3"
+            target="_blank"
+          >
+            <Image
+              width={34}
+              height={34}
+              src="/yelp-logo.png"
+              alt="Yelp Link to P trains bbq"
+            />
+          </a>
+          <a href="https://www.instagram.com/ptrainsbbq/?hl=en" target="_blank">
+            <Image
+              width={27}
+              height={34}
+              src="/instagram-icon.png"
+              alt="instagram link"
+            />
+          </a>
+          <a href="https://www.facebook.com/PTrainsBBQ/" target="_blank">
+            <Image
+              width={27}
+              height={34}
+              src="/facebook-icon.png"
+              alt="facebook link"
+            />
+          </a>
         </article>
       </section>
     </footer>
