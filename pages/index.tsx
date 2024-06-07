@@ -85,7 +85,7 @@ export default function Home() {
             About Us
           </motion.header>
           <motion.h4
-            className={`${styles.about_us__header} md:text-3xl sm:text-lg`}
+            className={`${styles.about_us__header} text-3xl`}
             initial="hidden"
             variants={boxVariant}
             animate={control}
@@ -207,6 +207,7 @@ export default function Home() {
           <ContactForm />
         </motion.section>
       </section>
+      <Script type="text/css" src="https://cdn.tailwindcss.com" />
     </>
   );
 }
