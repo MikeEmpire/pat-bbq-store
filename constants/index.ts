@@ -36,9 +36,9 @@ export const links: Array<PTrainMenuLink> = [
 ];
 
 export const CAROUSEL_IMAGES: string[] = [
-  "/new-slide-01.jpg",
-  "/new-slide-02.jpg",
-  "/new-slide-03.jpg",
+  "/new-slide-1.jpg",
+  "/new-slide-2.jpg",
+  "/new-slide-3.jpg",
   "/new-slide-4.jpg",
   "/new-slide-5.jpg",
   "/new-slide-6.jpg",
