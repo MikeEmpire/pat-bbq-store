@@ -1,18 +1,23 @@
 import React, { useState } from "react";
+import { ContactFormData } from "../@types";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
-  const handleConfirm = () => {
-    // Do something with the data (e.g., send it to an API)
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
-  };
-
   const isReady = name.length > 3 && email.length > 3 && message.length > 5;
+
+  const handleConfirm = (): void => {
+    // Do something with the data (e.g., send it to an API)
+    if (isReady) {
+      const contactFormData: ContactFormData = {
+        name: name,
+        email: email,
+        message: message,
+      };
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
