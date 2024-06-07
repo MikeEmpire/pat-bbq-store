@@ -35,6 +35,9 @@ export const links: Array<PTrainMenuLink> = [
   },
 ];
 
+const contactFormURL: string =
+  "https://empire-api.afam.app/api/v1/ptrains/contact";
+
 export const CAROUSEL_IMAGES: string[] = [
   "/new-slide-1.jpg",
   "/new-slide-2.jpg",
@@ -44,4 +47,4 @@ export const CAROUSEL_IMAGES: string[] = [
   "/new-slide-6.jpg",
   "/new-slide-7.jpg",
   "/new-slide-8.jpg",
-]
+];
