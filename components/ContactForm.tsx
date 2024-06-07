@@ -100,7 +100,7 @@ const ContactForm: React.FC = () => {
           <button
             disabled={!isReady}
             onClick={handleConfirm}
-            type="submit"
+            type="button"
             className="bg-indigo-500 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Send
