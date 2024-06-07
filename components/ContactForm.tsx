@@ -14,7 +14,7 @@ const ContactForm: React.FC = () => {
     // Check if the form data is ready
     if (isReady) {
       // Prepare the contact form data
-      const contactFormData = {
+      const contactFormData: ContactFormData = {
         name: name,
         email: email,
         message: message,
@@ -34,6 +34,9 @@ const ContactForm: React.FC = () => {
         if (response.ok) {
           // If the request was successful (status code 200), display a success message
           setResponseMessage("Message sent successfully!");
+          setName("");
+          setEmail("");
+          setMessage("");
         } else {
           // If there was an error, display an error message
           setResponseMessage("Failed to send message. Please try again later.");
@@ -95,6 +98,7 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-end">
           <button
             disabled={!isReady}
+            onClick={handleConfirm}
             type="submit"
             className="bg-indigo-500 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
