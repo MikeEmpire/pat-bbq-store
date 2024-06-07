@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "../styles/Footer.module.css";
 
@@ -14,7 +15,7 @@ export default function Footer() {
           className={styles.footer_info__container}
           style={{ display: "flex", gap: "19px", marginBottom: "10px" }}
         >
-          <a
+          <Link
             href="https://www.yelp.com/biz/ptrains-california-bbq-rancho-cucamonga-3"
             target="_blank"
           >
@@ -24,23 +25,23 @@ export default function Footer() {
               src="/yelp-logo.png"
               alt="Yelp Link to P trains bbq"
             />
-          </a>
-          <a href="https://www.instagram.com/ptrainsbbq/?hl=en" target="_blank">
+          </Link>
+          <Link href="https://www.instagram.com/ptrainsbbq/?hl=en" target="_blank">
             <Image
               width={27}
               height={34}
               src="/instagram-icon.png"
               alt="instagram link"
             />
-          </a>
-          <a href="https://www.facebook.com/PTrainsBBQ/" target="_blank">
+          </Link>
+          <Link href="https://www.facebook.com/PTrainsBBQ/" target="_blank">
             <Image
               width={27}
               height={34}
               src="/facebook-icon.png"
               alt="facebook link"
             />
-          </a>
+          </Link>
         </article>
       </section>
     </footer>
