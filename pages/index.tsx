@@ -106,12 +106,8 @@ export default function Home() {
             <header className={`${styles.history__header} text-4xl`}>
               Our History
             </header>
-            <Image
-              src={patImg}
-              alt="Pat Front Profile"
-              className="w-5/12"
-            />
-            <figcaption>
+            <Image src={patImg} alt="Pat Front Profile" className="w-5/12" />
+            <figcaption className="md:text-3xl sm:text-lg">
               When our dad was diagnosed and shortly later passed away from
               cancer suddenly in 2021, it was a no-brainer to continue that
               dream. I&#39;ve been smoking BBQ since I was 11, early
@@ -133,14 +129,16 @@ export default function Home() {
           <header className={`${styles.container__header} text-4xl`}>
             Menu
           </header>
-          <h6>
+          <h6 className="md:text-3xl">
             If you&#39;re looking for mouth-watering barbecue that&#39;s sure to
             satisfy your cravings, look no further than P Trains BBQ. Our
             catering services are perfect for any occasion, whether you&#39;re
             hosting a backyard cookout, corporate event, or wedding reception.
           </h6>
           <br />
-          <figure className={`${styles.menu__figure} sm:flex-col flex md:flex-row`}>
+          <figure
+            className={`${styles.menu__figure} flex md:flex-row flex-col`}
+          >
             <Image
               height={400}
               width={200}

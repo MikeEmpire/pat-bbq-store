@@ -345,6 +345,7 @@
 .about_us__container figcaption {
   font-style: normal;
   font-weight: 400;
+  line-height: 29px;
   padding-left: 50px;
   margin-bottom: 40px;
 }
