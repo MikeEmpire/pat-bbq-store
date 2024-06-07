@@ -1,21 +1,49 @@
 import React, { useState } from "react";
 import { ContactFormData } from "../@types";
+import { contactFormURL } from "../constants";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [responseMessage, setResponseMessage] = useState<string>("");
 
   const isReady = name.length > 3 && email.length > 3 && message.length > 5;
 
-  const handleConfirm = (): void => {
-    // Do something with the data (e.g., send it to an API)
+  const handleConfirm = async (): Promise<void> => {
+    // Check if the form data is ready
     if (isReady) {
-      const contactFormData: ContactFormData = {
+      // Prepare the contact form data
+      const contactFormData = {
         name: name,
         email: email,
         message: message,
       };
+
+      try {
+        // Send a POST request to the API
+        const response = await fetch(contactFormURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contactFormData),
+        });
+
+        // Check the status code of the response
+        if (response.ok) {
+          // If the request was successful (status code 200), display a success message
+          setResponseMessage("Message sent successfully!");
+        } else {
+          // If there was an error, display an error message
+          setResponseMessage("Failed to send message. Please try again later.");
+        }
+      } catch (error) {
+        // If there was a network error, display an error message
+        setResponseMessage(
+          "An error occurred while sending the message. Please try again later."
+        );
+      }
     }
   };
 
@@ -60,6 +88,9 @@ const ContactForm: React.FC = () => {
             className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
           />
         </div>
+        {responseMessage && (
+          <div className="mb-6 text-center text-red-500">{responseMessage}</div>
+        )}
 
         <div className="flex justify-end">
           <button
