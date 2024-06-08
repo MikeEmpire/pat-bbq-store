@@ -59,7 +59,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-min">
       <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
         <div className="mb-6">
           <input
