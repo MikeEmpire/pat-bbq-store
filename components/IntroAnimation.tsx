@@ -59,7 +59,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
         to
       </motion.div>
       <motion.div variants={textVariants} className={textCSS}>
-        PTrain's
+        PTrain&lsquo;s
       </motion.div>
       <motion.div variants={textVariants} className={textCSS}>
         BBQ
