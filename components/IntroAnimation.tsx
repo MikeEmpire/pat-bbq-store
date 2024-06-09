@@ -36,6 +36,8 @@ const textVariants = {
   },
 };
 
+const textCSS = "text-white text-4xl md:text-6xl lg:text-8xl my-2 mx-2 text-wrap"
+
 const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
   React.useEffect(() => {
     const timer = setTimeout(onComplete, 5000); // 5 seconds duration for the intro
@@ -50,16 +52,16 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
       exit="exit"
       variants={introVariants}
     >
-      <motion.div variants={textVariants} className={styles.introText}>
+      <motion.div variants={textVariants} className={textCSS}>
         Welcome
       </motion.div>
-      <motion.div variants={textVariants} className={styles.introText}>
+      <motion.div variants={textVariants} className={textCSS}>
         to
       </motion.div>
-      <motion.div variants={textVariants} className={styles.introText}>
-        Ptrains
+      <motion.div variants={textVariants} className={textCSS}>
+        PTrain's
       </motion.div>
-      <motion.div variants={textVariants} className={styles.introText}>
+      <motion.div variants={textVariants} className={textCSS}>
         BBQ
       </motion.div>
     </motion.div>
