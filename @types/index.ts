@@ -36,5 +36,6 @@ export interface PTrainMenuLink {
 export interface ContactFormData {
   name: string;
   email: string;
+  phoneNumber: string;
   message: string;
 }

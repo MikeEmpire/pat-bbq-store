@@ -5,6 +5,7 @@ import { contactFormURL } from "../constants";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [responseError, setResponseError] = useState<boolean>(false);
@@ -21,6 +22,7 @@ const ContactForm: React.FC = () => {
       // Prepare the contact form data
       const contactFormData: ContactFormData = {
         name: name,
+        phoneNumber,
         email: email,
         message: message,
       };
@@ -85,6 +87,19 @@ const ContactForm: React.FC = () => {
             type="email"
             id="email"
             name="email"
+            className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+          />
+        </div>
+        <div className="mb-6">
+          <input
+            placeholder="310-129-2938"
+            value={phoneNumber}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+            }}
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
             className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
           />
         </div>
