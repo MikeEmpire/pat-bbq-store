@@ -15,6 +15,7 @@ export default function Footer() {
           className={styles.footer_info__container}
           style={{ display: "flex", gap: "19px", marginBottom: "10px" }}
         >
+<<<<<<< HEAD
           <Link
             href="https://www.yelp.com/biz/ptrains-california-bbq-rancho-cucamonga-3"
             target="_blank"
@@ -42,6 +43,26 @@ export default function Footer() {
               alt="facebook link"
             />
           </Link>
+=======
+          <Image
+            width={34}
+            height={34}
+            src="/yelp-logo.png"
+            alt="Yelp Link to P trains bbq"
+          />
+          <Image
+            width={27}
+            height={34}
+            src="/instagram-icon.png"
+            alt="instagram link"
+          />
+          <Image
+            width={27}
+            height={34}
+            src="/facebook-icon.png"
+            alt="facebook link"
+          />
+>>>>>>> 4b78ea8 (rebased content)
         </article>
       </section>
     </footer>
