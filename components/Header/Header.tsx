@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useCycle } from "framer-motion";
 
-import useDimensions from "../modules/useDimensions";
+import useDimensions from "../../modules/useDimensions";
 
-import styles from "../styles/Header.module.css";
-import { links } from "../constants";
+import styles from "./Header.module.css";
+import { links } from "../../constants";
 
 const mobileNavStyles = {
   open: (height = 1000) => ({

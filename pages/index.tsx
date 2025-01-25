@@ -10,12 +10,12 @@ import "yet-another-react-lightbox";
 import styles from "../styles/Home.module.css";
 import "yet-another-react-lightbox/styles.css";
 
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm/ContactForm";
 import Carousel from "../components/Carousel";
-import InfiniteScrollText from "../components/InfiniteScrollText";
+import InfiniteScrollText from "../components/InfiniteScrollText/InfiniteScrollText";
 
 import patImg from "../public/pat.png";
-import IntroAnimation from "../components/IntroAnimation";
+import IntroAnimation from "../components/IntroAnimation/IntroAnimation";
 
 const boxVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },

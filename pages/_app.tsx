@@ -3,7 +3,7 @@ import "../styles/Snipcart.module.css";
 import Script from "next/script";
 import type { AppProps } from "next/app";
 
-import Layout from "../components/Layout";
+import Layout from "../components/ContactForm/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

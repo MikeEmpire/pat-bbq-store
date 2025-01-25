@@ -1,7 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 
 import sectionVariant from "../../animations/variants/sectionVariant";
-import InfiniteScrollText from "../InfiniteScrollText";
+import InfiniteScrollText from "../InfiniteScrollText/InfiniteScrollText";
 
 export default function BookUs(): JSX.Element {
   const sectionControl = useAnimation();

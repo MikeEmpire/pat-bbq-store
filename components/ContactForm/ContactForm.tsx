@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { ContactFormData } from "../@types";
-import { contactFormURL } from "../constants";
+import { ContactFormData } from "../../@types";
+import { contactFormURL } from "../../constants";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -121,11 +121,7 @@ const ContactForm: React.FC = () => {
           <button
             disabled={!isReady}
             onClick={handleConfirm}
-<<<<<<< HEAD
             type="button"
-=======
-            type="submit"
->>>>>>> 2fdfeed (able to send data to caira's email)
             className="bg-indigo-500 text-white font-medium py-2 px-4 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Send

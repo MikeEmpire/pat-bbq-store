@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "../styles/ScrollText.module.css"; // Adjust the path as needed
+
+import styles from "./InfiniteScrollText.module.css"; // Adjust the path as needed
 
 interface InfiniteScrollTextProps {
   text: string;
