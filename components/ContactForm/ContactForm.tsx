@@ -8,6 +8,7 @@ const ContactForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [responseError, setResponseError] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string>("");
 
   const isReady = name.length > 3 && email.length > 3 && message.length > 5;
@@ -39,16 +40,19 @@ const ContactForm: React.FC = () => {
         // Check the status code of the response
         if (response.ok) {
           // If the request was successful (status code 200), display a success message
+          setResponseError(false);
           setResponseMessage("Message sent successfully!");
           setName("");
           setEmail("");
           setMessage("");
         } else {
+          setResponseError(true);
           // If there was an error, display an error message
           setResponseMessage("Failed to send message. Please try again later.");
         }
       } catch (error) {
         // If there was a network error, display an error message
+        setResponseError(true);
         setResponseMessage(
           "An error occurred while sending the message. Please try again later."
         );
@@ -114,7 +118,9 @@ const ContactForm: React.FC = () => {
           />
         </div>
         {responseMessage && (
-          <div className="mb-6 text-center text-red-500">{responseMessage}</div>
+          <div className={`mb-6 text-center ${responseTextClass}`}>
+            {responseMessage}
+          </div>
         )}
 
         <div className="flex justify-end">
