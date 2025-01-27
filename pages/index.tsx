@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { EmblaOptionsType } from "embla-carousel-react";
-
-import styles from "../styles/Home.module.css";
 import { AnimatePresence } from "framer-motion";
+
 import IntroAnimation from "../components/IntroAnimation/IntroAnimation";
 import Carousel from "../components/Carousel";
+
+import styles from "../styles/Home.module.css";
 
 export default function Home(): JSX.Element {
   const [showIntro, toggleIntro] = useState<boolean>(true);
