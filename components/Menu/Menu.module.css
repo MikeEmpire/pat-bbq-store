@@ -1,0 +1,32 @@
+.menu__caption {
+  font-style: normal;
+  font-weight: 400;
+  font-size: large;
+  line-height: 29px;
+  font-family: "Gilroy";
+  margin: 0 3%;
+}
+
+.menu__figure {
+  display: flex;
+  align-items: center;
+  margin: 0 25;
+}
+
+.menu__figure figcaption {
+  font-family: "Gilroy";
+  margin-left: 2%;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.menu__container {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
+
+.menu__container img {
+  width: 24em;
+  height: auto;
+}

@@ -14,7 +14,6 @@ import ContactForm from "../components/ContactForm/ContactForm";
 import Carousel from "../components/Carousel";
 import InfiniteScrollText from "../components/InfiniteScrollText/InfiniteScrollText";
 
-import patImg from "../public/pat.png";
 import IntroAnimation from "../components/IntroAnimation/IntroAnimation";
 
 const boxVariant = {

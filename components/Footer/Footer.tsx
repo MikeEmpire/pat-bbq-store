@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className="main-font">
       <section className={styles.footer_info_outer__container}>
         <article className={styles.footer_info__container}>
           <h6 className="text-xl">For inquiries, call us at</h6>

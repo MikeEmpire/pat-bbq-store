@@ -243,6 +243,10 @@ main {
   padding-top: 10%;
 }
 
+.main-font {
+  font-family: "Gilroy";
+}
+
 @media (max-width: 700px) {
   main {
     padding-top: 30%;
