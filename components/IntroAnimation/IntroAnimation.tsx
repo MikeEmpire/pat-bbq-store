@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-import styles from "../styles/IntroAnimation.module.css"; // Create this CSS module for styling
+import styles from "./IntroAnimation.module.css";
 
 const introVariants = {
   hidden: { opacity: 0 },
@@ -36,7 +36,8 @@ const textVariants = {
   },
 };
 
-const textCSS = "text-white text-4xl md:text-6xl lg:text-8xl my-2 mx-2 text-wrap"
+const textCSS =
+  "text-white text-4xl md:text-6xl lg:text-8xl my-2 mx-2 text-wrap";
 
 const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
   React.useEffect(() => {

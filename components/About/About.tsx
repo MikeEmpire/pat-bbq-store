@@ -2,21 +2,21 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 
 import sectionVariant from "../../animations/variants/sectionVariant";
-import patImg from "../public/pat.png";
+import patImg from "../../public/pat.png";
 
 export default function About(): JSX.Element {
-  const sectionControl = useAnimation();
   return (
-    <section id="about">
+    <section className="px-56" id="about">
       <motion.header
-        variants={sectionVariant}
-        initial="hidden"
-        animate={sectionControl}
+        animate="visible"
         className="mb-8 text-4xl"
+        initial="hidden"
+        variants={sectionVariant}
       >
         About Us
       </motion.header>
       <motion.h4
+        animate="visible"
         className="md:text-3xl sm:text-lg px-3 sm:p-0"
         initial="hidden"
         variants={sectionVariant}
@@ -26,7 +26,11 @@ export default function About(): JSX.Element {
         smoked pizzas, his original bbq sauces and the perfect Tri Tip sandwich
         has turned into so much more."
       </motion.h4>
-      <motion.figure initial="hidden" variants={sectionVariant}>
+      <motion.figure
+        animate="visible"
+        initial="hidden"
+        variants={sectionVariant}
+      >
         <header className="text-4xl">Our History</header>
         <figure className="flex md:flex-row flex-col items-center justify-center gap-5">
           <Image src={patImg} alt="Pat Front Profile" className="w-5/12" />

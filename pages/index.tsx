@@ -81,57 +81,6 @@ export default function Home(): JSX.Element {
       {!showIntro && (
         <section className={styles.main}>
           <Carousel slides={SLIDES} options={OPTIONS} />
-          <section id="about" className={styles.about_us__container}>
-            <motion.header
-              variants={boxVariant}
-              initial="hidden"
-              animate={control}
-              ref={ref}
-              className={`${styles.container__header} mb-8 text-4xl`}
-            >
-              About Us
-            </motion.header>
-            <motion.h4
-              className={`${styles.about_us__header} md:text-3xl sm:text-lg px-3 sm:p-0`}
-              initial="hidden"
-              variants={boxVariant}
-              animate={control}
-              ref={ref}
-            >
-              For us, P Train&#39;s BBQ is a legacy that is an honor to
-              represent. What started as Pat “Ptrain” Patterson&#39;s dream of
-              serving real wood smoked pizzas, his original bbq sauces and the
-              perfect Tri Tip sandwich has turned into so much more.{" "}
-            </motion.h4>
-            <motion.figure
-              ref={imageRef}
-              animate={imageControl}
-              initial="hidden"
-              variants={boxVariant}
-              className={styles.history__container}
-            >
-              <header className={`${styles.history__header} text-4xl`}>
-                Our History
-              </header>
-              <figure className="flex md:flex-row flex-col items-center justify-center gap-5">
-                <Image
-                  src={patImg}
-                  alt="Pat Front Profile"
-                  className="w-5/12"
-                />
-                <figcaption className="md:text-3xl sm:text-lg">
-                  When our dad was diagnosed and shortly later passed away from
-                  cancer suddenly in 2021, it was a no-brainer to continue that
-                  dream. I&#39;ve been smoking BBQ since I was 11, early
-                  mornings-late nights with my dad. He taught us that with hard
-                  work, patience and love you can achieve any dream that you
-                  have. We worked at festivals, lunches, weddings, football
-                  games, conventions… learning the invaluable skills he left us
-                  with.{" "}
-                </figcaption>
-              </figure>
-            </motion.figure>
-          </section>
           <motion.section
             variants={boxVariant}
             initial="hidden"
