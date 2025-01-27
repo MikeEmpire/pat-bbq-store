@@ -7,6 +7,8 @@ import useDimensions from "../../modules/useDimensions";
 
 import styles from "./Header.module.css";
 import { links } from "../../constants";
+import listItemVariants from "../../animations/variants/listItemVariants";
+import linkVariants from "../../animations/variants/linkVariants";
 
 const mobileNavStyles = {
   open: (height = 1000) => ({
@@ -24,32 +26,6 @@ const mobileNavStyles = {
       type: "spring",
       stiffness: 400,
       damping: 40,
-    },
-  },
-};
-
-const linkVariants = {
-  open: {
-    transition: { staggerChildren: 0.8, delayChildren: 0.5 },
-  },
-  closed: {
-    transition: { staggerChildren: 0.5, staggerDirection: -1 },
-  },
-};
-
-const listItemVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -100 },
-    },
-    closed: {
-      y: 50,
-      opacity: 0,
-      transition: {
-        y: { stiffness: 1000 },
-      },
     },
   },
 };

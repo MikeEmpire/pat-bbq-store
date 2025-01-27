@@ -1,13 +1,12 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 import sectionVariant from "../../animations/variants/sectionVariant";
 import InfiniteScrollText from "../InfiniteScrollText/InfiniteScrollText";
 
 export default function BookUs(): JSX.Element {
-  const sectionControl = useAnimation();
   return (
     <motion.section
-      animate={sectionControl}
+      animate="visible"
       variants={sectionVariant}
       initial="hidden"
     >
