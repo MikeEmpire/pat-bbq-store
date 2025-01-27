@@ -15,19 +15,19 @@ export const links: Array<PTrainMenuLink> = [
   },
   {
     label: "Menu",
-    link: "/#homemenu",
+    link: "/menu",
   },
   {
     label: "Book Us",
-    link: "/#bookus",
+    link: "/bookus",
   },
   {
     label: "About Us",
-    link: "/#about",
+    link: "/about",
   },
   {
     label: "Contact",
-    link: "/#homecontact",
+    link: "/contact",
   },
   {
     label: "Shop (coming soon)",

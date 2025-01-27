@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { ContactFormData } from "../../@types";
 import { contactFormURL } from "../../constants";
+import InfiniteScrollText from "../InfiniteScrollText/InfiniteScrollText";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -44,6 +45,7 @@ const ContactForm: React.FC = () => {
           setResponseMessage("Message sent successfully!");
           setName("");
           setEmail("");
+          setPhoneNumber("");
           setMessage("");
         } else {
           setResponseError(true);
@@ -61,7 +63,20 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-min">
+    <div className="flex items-center flex-col justify-center min-h-min">
+      <div className="flex flex-col">
+        <InfiniteScrollText text="Book With Us!" />
+        <h6 className="text-3xl px-32">
+          If you&#39;re ready to book P Trains BBQ for your upcoming event, or
+          if you have any questions about our catering services, we&#39;d love
+          to hear from you! Simply fill out the contact form below and one of
+          our friendly team members will be in touch shortly. <br /> <br />
+          We understand that planning an event can be stressful, which is why
+          we&#39;re committed to making the catering process as easy and
+          seamless as possible. By filling out the contact form, you&#39;ll be
+          taking the first step toward a delicious and stress-free event.
+        </h6>
+      </div>
       <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
         <div className="mb-6">
           <input

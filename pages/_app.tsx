@@ -12,10 +12,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script src="https://cdn.tailwindcss.com" />
       <Script
         type="text/javascript"
-        src="https://cdn.snipcart.com/themes.v3.2.0/default/snipcart.js"
-      />
-      <Script
-        type="text/javascript"
         src="https://assets.calendly.com/assets/external/widget.js"
         async
       />

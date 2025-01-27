@@ -2,7 +2,7 @@ import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { motion, useAnimationControls } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
-import styles from "../../styles/Embla.module.css";
+import styles from "./Embla.module.css";
 
 import NextButton from "./NextButton";
 import PrevButton from "./PrevButton";
@@ -96,13 +96,9 @@ function Carousel({ slides, options }: CarouselProps) {
               <div className={styles.embla_nav__text} />{" "}
               <span style={{ color: "#858585" }}>0{slides.length}</span>
             </header>
-<<<<<<< HEAD
             <motion.h5 className="mb-3" animate={controls}>
               P Train&apos;s BBQ Sauce
             </motion.h5>
-=======
-            <motion.h5 className="mb-3" animate={controls}>P Train&apos;s BBQ Sauce</motion.h5>
->>>>>>> 6fd6804 (rebased content)
             <motion.h6 animate={controls} className="md:text-lg">
               {slideCaptions[selectedIndex]}
             </motion.h6>
