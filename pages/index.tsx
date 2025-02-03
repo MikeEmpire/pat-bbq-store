@@ -6,6 +6,7 @@ import IntroAnimation from "../components/IntroAnimation/IntroAnimation";
 import Carousel from "../components/Carousel";
 
 import styles from "../styles/Home.module.css";
+import "yet-another-react-lightbox/styles.css";
 
 const [showIntro, toggleIntro] = useState<boolean>(true);
 
