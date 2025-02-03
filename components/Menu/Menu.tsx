@@ -19,6 +19,7 @@ function Menu() {
   const closeLightbox = (): void => {
     toggleLightbox(false);
   };
+  const menuImg = "/menu/2025PTrainsCateringMenu.png";
   return (
     <motion.section
       variants={sectionVariant}
@@ -42,7 +43,7 @@ function Menu() {
           width={200}
           onClick={openLightbox}
           alt="P Train's 2025 BBQ Menu"
-          src="/menu/2025PTrainsCateringMenu.png"
+          src={menuImg}
           className="mb-5 md:mb-0 md:w-10/12 cursor-pointer"
         />
         <>
@@ -50,7 +51,7 @@ function Menu() {
             open={isLightboxOpen}
             plugins={[Zoom]}
             close={closeLightbox}
-            slides={[{ src: "/CateringMenu.jpg" }]}
+            slides={[{ src: menuImg }]}
           />
         </>
         <figcaption className="md:text-3xl">
