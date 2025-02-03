@@ -8,8 +8,6 @@ import Carousel from "../components/Carousel";
 import styles from "../styles/Home.module.css";
 import "yet-another-react-lightbox/styles.css";
 
-const [showIntro, toggleIntro] = useState<boolean>(true);
-
 export default function Home(): JSX.Element {
   const [showIntro, toggleIntro] = useState<boolean>(true);
 
