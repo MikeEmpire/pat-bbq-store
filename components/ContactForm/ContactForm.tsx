@@ -77,6 +77,7 @@ const ContactForm: React.FC = () => {
           taking the first step toward a delicious and stress-free event.
         </h6>
       </div>
+<<<<<<< HEAD
       <div className="flex items-center justify-center min-h-min">
         <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
           <div className="mb-6">
@@ -91,6 +92,66 @@ const ContactForm: React.FC = () => {
               value={name}
               className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
             />
+=======
+      <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
+        <div className="mb-6">
+          <input
+            placeholder="Your Name Goes Here"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+          />
+        </div>
+
+        <div className="mb-6">
+          <input
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            type="email"
+            id="email"
+            name="email"
+            className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+          />
+        </div>
+        <div className="mb-6">
+          <input
+            placeholder="310-129-2938"
+            value={phoneNumber}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+            }}
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+          />
+        </div>
+
+        <div className="mb-6">
+          <textarea
+            placeholder="Enter a message"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+            id="message"
+            name="message"
+            rows={4}
+            className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+          />
+        </div>
+        {responseMessage && (
+          <div className={`mb-6 text-center ${responseTextClass}`}>
+            {responseMessage}
+>>>>>>> c4da78c (Further modularize code and removed unnecessary css files)
           </div>
 
           <div className="mb-6">
