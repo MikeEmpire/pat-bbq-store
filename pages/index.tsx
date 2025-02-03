@@ -11,12 +11,15 @@ import "yet-another-react-lightbox/styles.css";
 const [showIntro, toggleIntro] = useState<boolean>(true);
 
 export default function Home(): JSX.Element {
-  const OPTIONS: EmblaOptionsType = {};
-  const SLIDE_COUNT = 8;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+  const [showIntro, toggleIntro] = useState<boolean>(true);
+
   const handleIntroComplete = (): void => {
     toggleIntro(false);
   };
+
+  const OPTIONS: EmblaOptionsType = {};
+  const SLIDE_COUNT = 8;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <>
       <AnimatePresence>
