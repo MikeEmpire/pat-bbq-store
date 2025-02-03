@@ -325,7 +325,6 @@
 .about_us__header {
   font-style: normal;
   font-weight: 500;
-  line-height: 30px;
   text-align: center;
   color: #e89898;
   margin-bottom: 8%;
@@ -342,7 +341,6 @@
 .about_us__container figcaption {
   font-style: normal;
   font-weight: 400;
-  line-height: 29px;
   padding-left: 50px;
   margin-bottom: 40px;
 }
