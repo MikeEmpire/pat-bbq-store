@@ -39,12 +39,12 @@ export const contactFormURL: string =
   "https://empire-api.afam.app/api/v1/ptrains/contact";
 
 export const CAROUSEL_IMAGES: string[] = [
-  "/new-slide-1.jpg",
-  "/new-slide-2.jpg",
-  "/new-slide-3.jpg",
-  "/new-slide-4.jpg",
-  "/new-slide-5.jpg",
-  "/new-slide-6.jpg",
-  "/new-slide-7.jpg",
-  "/new-slide-8.jpg",
+  "/slideshow/slide-1.jpeg",
+  "/slideshow/slide-2.jpeg",
+  "/slideshow/slide-3.jpeg",
+  "/slideshow/slide-4.jpeg",
+  "/slideshow/slide-5.jpeg",
+  "/slideshow/slide-6.jpeg",
+  "/slideshow/slide-7.jpeg",
+  "/slideshow/slide-8.jpeg",
 ];

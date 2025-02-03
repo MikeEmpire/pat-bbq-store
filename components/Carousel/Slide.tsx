@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import styles from "../../styles/Embla.module.css";
+import styles from "./Embla.module.css";
 
 import { CAROUSEL_IMAGES } from "../../constants";
 

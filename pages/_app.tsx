@@ -1,9 +1,8 @@
-import "../styles/globals.css";
-import "../styles/Snipcart.module.css";
 import Script from "next/script";
 import type { AppProps } from "next/app";
 
 import Layout from "../components/Layout";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

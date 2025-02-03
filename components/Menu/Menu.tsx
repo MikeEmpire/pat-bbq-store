@@ -27,12 +27,12 @@ function Menu() {
       className={`${styles.container__header} text-4xl`}
     >
       <InfiniteScrollText text="Check Out the Menu!" />
-      <h6 className="md:text-3xl px-28 py-14">
+      <h2 className="md:text-3xl px-28 py-14">
         If you&#39;re looking for mouth-watering barbecue that&#39;s sure to
         satisfy your cravings, look no further than P Trains BBQ. Our catering
         services are perfect for any occasion, whether you&#39;re hosting a
         backyard cookout, corporate event, or wedding reception.
-      </h6>
+      </h2>
       <br />
       <figure
         className={`${styles.menu__figure} flex md:flex-row flex-col px-28`}
@@ -41,8 +41,8 @@ function Menu() {
           height={400}
           width={200}
           onClick={openLightbox}
-          alt="P Train's BBQ Menu"
-          src="/CateringMenu.jpg"
+          alt="P Train's 2025 BBQ Menu"
+          src="/menu/2025PTrainsCateringMenu.png"
           className="mb-5 md:mb-0 md:w-10/12 cursor-pointer"
         />
         <>

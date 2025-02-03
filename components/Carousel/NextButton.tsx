@@ -2,7 +2,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CarouselButtonProps } from "../../@types";
 
-import styles from "../../styles/Embla.module.css";
+import styles from "./Embla.module.css";
 
 function NextButton({ enabled, onClick }: CarouselButtonProps) {
   return (
