@@ -41,7 +41,7 @@ export default function About(): JSX.Element {
             with my dad. He taught us that with hard work, patience and love you
             can achieve any dream that you have. We worked at festivals,
             lunches, weddings, football games, conventions… learning the
-            invaluable skills he left us with."
+            invaluable skills he left us with.
           </figcaption>
         </figure>
       </motion.figure>
