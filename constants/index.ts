@@ -35,11 +35,7 @@ export const links: Array<PTrainMenuLink> = [
   },
 ];
 
-<<<<<<< HEAD
 export const contactFormURL: string =
-=======
-const contactFormURL: string =
->>>>>>> 750fe72 (updated code to poise itself to make api call to send data to contact form)
   "https://empire-api.afam.app/api/v1/ptrains/contact";
 
 export const CAROUSEL_IMAGES: string[] = [
