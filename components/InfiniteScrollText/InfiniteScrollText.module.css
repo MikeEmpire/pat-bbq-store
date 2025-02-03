@@ -28,16 +28,3 @@
     transform: translate(-100%, 0);
   }
 }
-<<<<<<< HEAD
-=======
-
-.animated_text_strip {
-  padding: 1rem 0;
-}
-.marquee {
-  font-size: 6rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: white;
-}
->>>>>>> c4da78c (Further modularize code and removed unnecessary css files)
