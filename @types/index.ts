@@ -38,4 +38,6 @@ export interface ContactFormData {
   email: string;
   phoneNumber: string;
   message: string;
+  numberOfGuests: number;
+  eventDate: string;
 }

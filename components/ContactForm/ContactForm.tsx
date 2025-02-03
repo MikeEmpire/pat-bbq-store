@@ -9,6 +9,8 @@ const ContactForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [numberOfGuests, setNumberOfGuests] = useState<number>(0);
+  const [eventDate, setEventDate] = useState<string>("");
   const [responseError, setResponseError] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string>("");
 
@@ -22,10 +24,12 @@ const ContactForm: React.FC = () => {
     if (isReady) {
       // Prepare the contact form data
       const contactFormData: ContactFormData = {
-        name: name,
+        name,
         phoneNumber,
-        email: email,
-        message: message,
+        email,
+        message,
+        numberOfGuests,
+        eventDate,
       };
 
       try {
@@ -44,6 +48,8 @@ const ContactForm: React.FC = () => {
           setResponseError(false);
           setResponseMessage("Message sent successfully!");
           setName("");
+          setNumberOfGuests(0);
+          setEventDate("");
           setEmail("");
           setPhoneNumber("");
           setMessage("");
@@ -130,6 +136,29 @@ const ContactForm: React.FC = () => {
               id="message"
               name="message"
               rows={4}
+              className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+            />
+          </div>
+          <div className="mb-6">
+            <input
+              placeholder="Number of Guests"
+              value={numberOfGuests}
+              onChange={(e) => setNumberOfGuests(Number(e.target.value))}
+              type="number"
+              id="numberOfGuests"
+              name="numberOfGuests"
+              className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+            />
+          </div>
+
+          <div className="mb-6">
+            <input
+              placeholder="Event Date"
+              value={eventDate}
+              onChange={(e) => setEventDate(e.target.value)}
+              type="date"
+              id="eventDate"
+              name="eventDate"
               className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
             />
           </div>
