@@ -22,9 +22,9 @@ export default function About(): JSX.Element {
         variants={sectionVariant}
       >
         For us, P Train&#39;s BBQ is a legacy that is an honor to represent.
-        What started as Pat “Ptrain” Patterson&#39;s dream of serving real wood
+        What started as Pat &quot;Ptrain&quot; Patterson&#39;s dream of serving real wood
         smoked pizzas, his original bbq sauces and the perfect Tri Tip sandwich
-        has turned into so much more."
+        has turned into so much more.
       </motion.h4>
       <motion.figure
         animate="visible"
