@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import "../styles/globals.css";
+import "../styles/Snipcart.module.css";
+>>>>>>> 313f4a3 (updated images and added tailwind for responsive design. Also updated nav links)
 import Script from "next/script";
 import type { AppProps } from "next/app";
 
@@ -11,6 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script src="https://cdn.tailwindcss.com" />
       <Script
         type="text/javascript"
+<<<<<<< HEAD
+=======
+        src="https://cdn.snipcart.com/themes.v3.2.0/default/snipcart.js"
+      />
+      <Script
+        type="text/javascript"
+>>>>>>> 313f4a3 (updated images and added tailwind for responsive design. Also updated nav links)
         src="https://assets.calendly.com/assets/external/widget.js"
         async
       />
