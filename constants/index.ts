@@ -44,3 +44,14 @@ export const CAROUSEL_IMAGES: string[] = [
   "/slideshow/slide-7.jpeg",
   "/slideshow/slide-8.jpeg",
 ];
+
+export const slideHeaders: string[] = [
+  "LA's Favorite",
+  "Annual Treat",
+  "Gourmet Chicken",
+  "Fusion Flavor",
+  "Catering Excellence",
+  "Outstanding Service",
+  "Grand Affair",
+  "Thanksgiving Feast",
+];

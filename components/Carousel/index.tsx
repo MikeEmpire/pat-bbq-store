@@ -7,6 +7,7 @@ import styles from "./Embla.module.css";
 import NextButton from "./NextButton";
 import PrevButton from "./PrevButton";
 import Slide from "./Slide";
+import { slideHeaders } from "../../constants";
 
 interface CarouselProps {
   slides: Array<number>;
@@ -97,7 +98,7 @@ function Carousel({ slides, options }: CarouselProps) {
               <span style={{ color: "#858585" }}>0{slides.length}</span>
             </header>
             <motion.h5 className="mb-3" animate={controls}>
-              P Train&apos;s BBQ Sauce
+              {slideHeaders[selectedIndex]}
             </motion.h5>
             <motion.h6 animate={controls} className="md:text-lg">
               {slideCaptions[selectedIndex]}

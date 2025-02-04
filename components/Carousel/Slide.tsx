@@ -1,8 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
-
 import styles from "./Embla.module.css";
 
-import { CAROUSEL_IMAGES } from "../../constants";
+import { CAROUSEL_IMAGES, slideHeaders } from "../../constants";
+import Image from "next/image";
 
 interface SlideProps {
   index: number;
@@ -10,19 +9,17 @@ interface SlideProps {
 
 function Slide({ index }: SlideProps) {
   const src = CAROUSEL_IMAGES[index];
-  const imgStyle =
-    index !== 6 ? { width: "100%" } : { width: "100%", height: "auto" };
+  console.log(src);
   return (
     <div className={styles.embla__slide}>
       <div className={styles.embla__slide__number}>
         <span>{index + 1}</span>
       </div>
-      <img
-        className={styles.embla__slide__img}
+      <Image
+        fill
+        className="object-contain"
         src={src}
-        alt="slide image"
-        width={300}
-        style={imgStyle}
+        alt={slideHeaders[index]}
       />
     </div>
   );
