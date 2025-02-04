@@ -18,10 +18,6 @@ export const links: Array<PTrainMenuLink> = [
     link: "/menu",
   },
   {
-    label: "Book Us",
-    link: "/bookus",
-  },
-  {
     label: "About Us",
     link: "/about",
   },

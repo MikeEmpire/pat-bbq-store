@@ -69,10 +69,10 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center flex-col justify-center min-h-min">
-      <div className="flex flex-col">
+    <div>
+      <section className="flex flex-col">
         <InfiniteScrollText text="Book With Us!" />
-        <h6 className="text-3xl px-32">
+        <h2 className="text-xl px-8">
           If you&#39;re ready to book P Trains BBQ for your upcoming event, or
           if you have any questions about our catering services, we&#39;d love
           to hear from you! Simply fill out the contact form below and one of
@@ -81,8 +81,8 @@ const ContactForm: React.FC = () => {
           we&#39;re committed to making the catering process as easy and
           seamless as possible. By filling out the contact form, you&#39;ll be
           taking the first step toward a delicious and stress-free event.
-        </h6>
-      </div>
+        </h2>
+      </section>
       <div className="flex items-center justify-center min-h-min">
         <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
           <div className="mb-6">

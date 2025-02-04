@@ -6,10 +6,10 @@ import patImg from "../../public/pat.png";
 
 export default function About(): JSX.Element {
   return (
-    <section className="px-56" id="about">
+    <section className="px-4 md:px-28" id="about">
       <motion.header
         animate="visible"
-        className="mb-8 text-4xl"
+        className="mb-5 text-4xl"
         initial="hidden"
         variants={sectionVariant}
       >
@@ -17,24 +17,24 @@ export default function About(): JSX.Element {
       </motion.header>
       <motion.h4
         animate="visible"
-        className="md:text-3xl sm:text-lg px-3 sm:p-0"
+        className="md:text-xl sm:text-lg mb-5 md:mb-8 sm:p-0"
         initial="hidden"
         variants={sectionVariant}
       >
         For us, P Train&#39;s BBQ is a legacy that is an honor to represent.
-        What started as Pat &quot;Ptrain&quot; Patterson&#39;s dream of serving real wood
-        smoked pizzas, his original bbq sauces and the perfect Tri Tip sandwich
-        has turned into so much more.
+        What started as Pat &quot;Ptrain&quot; Patterson&#39;s dream of serving
+        real wood smoked pizzas, his original bbq sauces and the perfect Tri Tip
+        sandwich has turned into so much more.
       </motion.h4>
       <motion.figure
         animate="visible"
         initial="hidden"
         variants={sectionVariant}
       >
-        <header className="text-4xl">Our History</header>
-        <figure className="flex md:flex-row flex-col items-center justify-center gap-5">
-          <Image src={patImg} alt="Pat Front Profile" className="w-5/12" />
-          <figcaption className="md:text-3xl sm:text-lg">
+        <header className="text-4xl mb-5">Our History</header>
+        <figure className="flex md:flex-row flex-col items-center justify-center gap-7">
+          <Image src={patImg} alt="Pat Front Profile" className="w-5/12 mb-5" />
+          <figcaption className="text-xl mb-5">
             When our dad was diagnosed and shortly later passed away from cancer
             suddenly in 2021, it was a no-brainer to continue that dream.
             I&#39;ve been smoking BBQ since I was 11, early mornings-late nights
