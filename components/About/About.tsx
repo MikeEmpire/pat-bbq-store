@@ -24,7 +24,7 @@ export default function About(): JSX.Element {
         For us, P Train&#39;s BBQ is a legacy that is an honor to represent.
         What started as Pat “Ptrain” Patterson&#39;s dream of serving real wood
         smoked pizzas, his original bbq sauces and the perfect Tri Tip sandwich
-        has turned into so much more."
+        has turned into so much more.
       </motion.h4>
       <motion.figure
         animate="visible"
@@ -41,7 +41,7 @@ export default function About(): JSX.Element {
             with my dad. He taught us that with hard work, patience and love you
             can achieve any dream that you have. We worked at festivals,
             lunches, weddings, football games, conventions… learning the
-            invaluable skills he left us with."
+            invaluable skills he left us with.
           </figcaption>
         </figure>
       </motion.figure>
