@@ -35,19 +35,24 @@ function Header() {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   const handleHeaderClick = () => toggleOpen();
-  const linksToUse = links.map((l) => (
-    <motion.li
-      variants={listItemVariants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      key={l.label}
-      onClick={() => {
-        toggleOpen();
-      }}
-    >
-      <Link href={l.link}>{l.label}</Link>
-    </motion.li>
-  ));
+  const linksToUse = links.map((l, index) => {
+    const isShoppingLink = index === links.length - 1;
+    const linkStyle = isShoppingLink ? { color: "grey" } : {};
+    return (
+      <motion.li
+        variants={listItemVariants}
+        style={linkStyle}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        key={l.label}
+        onClick={() => {
+          toggleOpen();
+        }}
+      >
+        <Link href={l.link}>{l.label}</Link>
+      </motion.li>
+    );
+  });
   const menuText = isOpen ? "Close Menu" : "Menu";
 
   return (

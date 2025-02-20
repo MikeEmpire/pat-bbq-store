@@ -43,11 +43,6 @@ function Carousel({ slides, options }: CarouselProps) {
     });
   }, [emblaApi, controls]);
 
-  const scrollTo = useCallback(
-    (index: number) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
-  );
-
   const onSelect = useCallback(() => {
     if (!emblaApi) {
       return null;
@@ -81,7 +76,19 @@ function Carousel({ slides, options }: CarouselProps) {
     '"We have had the privilege of having Ptrains BBQ at the Huck Finn Jubilee the last two years! Not only is their BBQ mouth watering delicious, but the owner Caira is such an amazing and kind person to work with. Her story is inspiring and her energy is always positive. Would highly recommend their catering your next event." - Nicki M',
     '"We recently held our annual law enforcement appreciation ceremony at March Air Field Museum and PTrain was our caterer. Not only were they on time, brought their own signage for their food, but they were pleasant, prepared, respectful and friendly. Our 500+ guests were able to enjoy an evening with the best smoked brisket and bbq chicken. (appetizers included salad, corn muffins, macaroni salad, potato salad, bbq beans) Guests were gushing over the amount of food and how delicious everything tasted. They also provided appetizers and deserts and two beverage stations that included water, ice tea, lemonade and coffee. The peach and berry cobbler was outstanding. I can\'t recommend them enough." - Marta N',
     '"We catered PTtrains BBQ for Thanksgiving this year and everything was amazing! The turkey, chicken, ham, Mac and cheese and stuffing all had so much flavor. The turkey, ham and Mac and cheese were smoked and were delicious. It came with cornbread, cranberry sauce and PTrains bbq sauce. All our guest were so happy! We had plenty for leftovers and everyone left happy! Thank you so much, Caira! We\'ll be reaching out next year again." - Melanie L.',
+    "\"I'm having Ptrains withdrawals! We had it for our backyard marriage celebration and it was PERFECT! Service was excellent and set everything up nicely while letting us know tips on hosting and where everything was. We had SO many compliments on the food. We have not experienced mac and cheese like this- a must have!  - Anna V. ",
+    '"The food was great, I\'m still thinking about the mac n cheese! I was blown away by the kindness of Caira and Rich! More than anything quality eats and portions were generous. Would recommend.  - Joey M. "',
+    '"Awesome Service and Food!! Thank you Caira!! Highly recommend to all! For any event or party, they will take care of setting up everything and the food is excellent.  - Brent L. ',
+    "\"Food and service is definitely 10/10 would recommend. We also got a jar of BBQ sauce to take home and it was the best on literally everything. We can't wait to get more in the near future to have on deck for any meal. If you haven't checked them out yet - this is your sign!  -Bel G.\" ",
+    '"Love the Mac and cheese! ribs fall off the bone and the chefs are family they are very kind and loving, being with them made me feel like I was one of their own.  -Paul P. "',
+    '"We have had the privilege of having Ptrains BBQ at the Huck Finn Jubilee the last two years! Not only is their BBQ mouth watering delicious, but the owner Caira is such an amazing and kind person to work with. Her story is inspiring and her energy is always positive. Would highly recommend their catering your next event.  -Nicki M"',
+    '"If you haven\'t been to Ptrains California BBQ yet, do yourself a favor and go! The kind of place where the service makes you smile, & the food makes you stay. Everything is cooked to perfection, & you can taste the love in every bite!  -Delia C"',
+    '"You have not lived until you have tried these ribs!!!! Very tender and packed with flavor! If you\'re looking for authentic BBQ with excellent service look no further!  -Skai T"',
+    '"We catered PTtrains BBQ for Thanksgiving this year and everything was amazing! The turkey, chicken, ham, Mac and cheese and stuffing all had so much flavor. The turkey, ham and Mac and cheese were smoked and were delicious. It came with cornbread, cranberry sauce and PIrains bbq sauce. All our guest were so happy! We had plenty for leftovers and everyone left happy! Thank you so much, Caira! We\'ll be reaching out next year again.  -Melanie L"',
   ];
+
+  const currentSlideNumber =
+    selectedIndex > 8 ? selectedIndex + 1 : `0${selectedIndex + 1}`;
 
   return (
     <>
@@ -92,13 +99,10 @@ function Carousel({ slides, options }: CarouselProps) {
         <section className={styles.embla__nav__container}>
           <article className={styles.embla__text}>
             <header className={styles.embla_text__header}>
-              0{selectedIndex + 1}
+              {currentSlideNumber}
               <div className={styles.embla_nav__text} />{" "}
-              <span style={{ color: "#858585" }}>0{slides.length}</span>
+              <span style={{ color: "#858585" }}>{slides.length}</span>
             </header>
-            <motion.h5 className="mb-3" animate={controls}>
-              P Train&apos;s BBQ Sauce
-            </motion.h5>
             <motion.h6 animate={controls} className="md:text-lg">
               {slideCaptions[selectedIndex]}
             </motion.h6>

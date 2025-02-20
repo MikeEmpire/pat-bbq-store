@@ -9,6 +9,8 @@ const ContactForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [numberOfGuests, setNumberOfGuests] = useState<number>(0);
+  const [eventDate, setEventDate] = useState<string>("");
   const [responseError, setResponseError] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string>("");
 
@@ -22,10 +24,12 @@ const ContactForm: React.FC = () => {
     if (isReady) {
       // Prepare the contact form data
       const contactFormData: ContactFormData = {
-        name: name,
+        name,
         phoneNumber,
-        email: email,
-        message: message,
+        email,
+        message,
+        numberOfGuests,
+        eventDate,
       };
 
       try {
@@ -44,6 +48,8 @@ const ContactForm: React.FC = () => {
           setResponseError(false);
           setResponseMessage("Message sent successfully!");
           setName("");
+          setNumberOfGuests(0);
+          setEventDate("");
           setEmail("");
           setPhoneNumber("");
           setMessage("");
@@ -63,10 +69,10 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center flex-col justify-center min-h-min">
-      <div className="flex flex-col">
+    <div>
+      <section className="flex flex-col">
         <InfiniteScrollText text="Book With Us!" />
-        <h6 className="text-3xl px-32">
+        <h2 className="text-xl px-8">
           If you&#39;re ready to book P Trains BBQ for your upcoming event, or
           if you have any questions about our catering services, we&#39;d love
           to hear from you! Simply fill out the contact form below and one of
@@ -75,8 +81,8 @@ const ContactForm: React.FC = () => {
           we&#39;re committed to making the catering process as easy and
           seamless as possible. By filling out the contact form, you&#39;ll be
           taking the first step toward a delicious and stress-free event.
-        </h6>
-      </div>
+        </h2>
+      </section>
       <div className="flex items-center justify-center min-h-min">
         <form className="w-full max-w-lg p-8 rounded-lg shadow-lg">
           <div className="mb-6">
@@ -130,6 +136,29 @@ const ContactForm: React.FC = () => {
               id="message"
               name="message"
               rows={4}
+              className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+            />
+          </div>
+          <div className="mb-6">
+            <input
+              placeholder="Number of Guests"
+              value={numberOfGuests}
+              onChange={(e) => setNumberOfGuests(Number(e.target.value))}
+              type="number"
+              id="numberOfGuests"
+              name="numberOfGuests"
+              className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
+            />
+          </div>
+
+          <div className="mb-6">
+            <input
+              placeholder="Event Date"
+              value={eventDate}
+              onChange={(e) => setEventDate(e.target.value)}
+              type="date"
+              id="eventDate"
+              name="eventDate"
               className="w-full border-b-2 border-white-300 focus:border-indigo-500 focus:outline-none py-2 px-4"
             />
           </div>

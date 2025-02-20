@@ -37,5 +37,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   phoneNumber: string;
+  numberOfGuests: number;
+  eventDate: string;
   message: string;
 }

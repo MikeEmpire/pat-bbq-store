@@ -17,7 +17,7 @@
 .embla__container {
   display: flex;
   flex-direction: row;
-  height: auto;
+  height: var(--slide-height);
   margin-left: calc(var(--slide-spacing) * -1);
 }
 .embla__slide {
@@ -25,12 +25,13 @@
   min-width: 0;
   padding-left: var(--slide-spacing);
   position: relative;
+  height: 100%;
 }
 .embla__slide__img {
   display: block;
   height: var(--slide-height);
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .embla__slide__number {
   width: 4.6rem;

@@ -47,4 +47,10 @@ export const CAROUSEL_IMAGES: string[] = [
   "/slideshow/slide-6.jpeg",
   "/slideshow/slide-7.jpeg",
   "/slideshow/slide-8.jpeg",
+  "/slideshow/slide-9.jpeg",
+  "/slideshow/slide-10.jpeg",
+  "/slideshow/slide-11.jpeg",
+  "/slideshow/slide-12.jpeg",
+  "/slideshow/slide-13.jpeg",
+  "/slideshow/slide-14.jpeg",
 ];
