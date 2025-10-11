@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Script from "next/script";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 
@@ -7,34 +6,28 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      window.dataLayer = window.dataLayer || []
+      window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: 'pageview',
-        page: url
-      })
-    }
+        event: "pageview",
+        page: url,
+      });
+    };
 
-    handleRouteChange(router.pathname)
+    handleRouteChange(router.pathname);
 
-    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events, router.pathname])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events, router.pathname]);
   return (
     <Layout>
       <Component {...pageProps} />
-      <Script src="https://cdn.tailwindcss.com" />
-      <Script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      />
     </Layout>
   );
 }
