@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ptrainsbbq.com
+
+# Sitemaps
+Sitemap: https://ptrainsbbq.com/sitemap.xml
