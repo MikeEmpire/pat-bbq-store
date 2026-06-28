@@ -1,4 +1,4 @@
-type YelpReview = {
+export type YelpReview = {
   user_profile: string;
   user_name: string;
   user_location?: string;
