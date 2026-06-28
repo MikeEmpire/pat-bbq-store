@@ -1,0 +1,296 @@
+/* BookingCTA.module.css */
+
+.section {
+  position: relative;
+}
+
+/* ── Two-column layout ─────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── Left pitch panel ──────────────────────────────────────────── */
+.pitch {
+  position: sticky;
+  top: calc(var(--ptrain-header-offset) + 2rem);
+}
+
+.heading {
+  color: var(--ptrain-color-cta-text);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: var(--ptrain-line-heading);
+  margin-top: 0.875rem;
+  margin-bottom: 1.75rem;
+}
+
+.pitchBody {
+  color: rgba(248, 244, 237, 0.78);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+  margin-bottom: 2.5rem;
+  max-width: 38ch;
+}
+
+.contactRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--ptrain-color-cta-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: opacity 160ms ease;
+}
+
+.phoneLink:hover {
+  opacity: 0.78;
+}
+
+.phoneIcon {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.orSeparator {
+  color: rgba(248, 244, 237, 0.45);
+  font-size: var(--ptrain-text-small);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.emailNote {
+  color: rgba(248, 244, 237, 0.65);
+  font-size: var(--ptrain-text-small);
+  line-height: 1.5;
+}
+
+/* ── Form card ─────────────────────────────────────────────────── */
+.formCard {
+  background: var(--ptrain-color-surface);
+  border-radius: var(--ptrain-radius-card);
+  padding: 2.5rem;
+  box-shadow: 0 24px 56px rgba(35, 20, 9, 0.28);
+}
+
+.formTitle {
+  color: var(--ptrain-color-text);
+  font-size: 1.375rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Field layout ──────────────────────────────────────────────── */
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  color: var(--ptrain-color-text);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.required {
+  color: var(--ptrain-color-primary);
+  margin-left: 0.2em;
+}
+
+.input,
+.select,
+.textarea {
+  appearance: none;
+  background: var(--ptrain-color-background);
+  border: 1px solid var(--ptrain-color-border-strong);
+  border-radius: var(--ptrain-radius-small);
+  color: var(--ptrain-color-text);
+  font-family: var(--ptrain-font-body);
+  font-size: var(--ptrain-text-body);
+  line-height: 1.4;
+  padding: 0.625rem 0.875rem;
+  transition: border-color 160ms ease;
+  width: 100%;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ptrain-color-text-muted);
+  opacity: 0.6;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--ptrain-color-accent);
+  outline: none;
+}
+
+.select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6A52' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Honeypot — hidden from humans, visible to bots */
+.honeypot {
+  display: none;
+}
+
+/* ── Submit row ────────────────────────────────────────────────── */
+.submitRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.submitBtn {
+  width: 100%;
+  cursor: pointer;
+}
+
+.submitBtn:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.privacyNote {
+  color: var(--ptrain-color-text-muted);
+  font-size: 0.7rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* ── Feedback states ───────────────────────────────────────────── */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+}
+
+.successIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--ptrain-color-accent-soft);
+}
+
+.successHeading {
+  color: var(--ptrain-color-text);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.successBody {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+}
+
+.errorMsg {
+  background: rgba(107, 29, 42, 0.08);
+  border: 1px solid rgba(107, 29, 42, 0.22);
+  border-radius: var(--ptrain-radius-small);
+  color: var(--ptrain-color-primary);
+  font-size: var(--ptrain-text-small);
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+}
+
+/* ── Entrance animations ───────────────────────────────────────── */
+@keyframes booking-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animatePitch,
+.animateForm {
+  opacity: 0;
+}
+
+.animatePitch.visible {
+  animation: booking-fade-up 0.56s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0ms;
+}
+
+.animateForm.visible {
+  animation: booking-fade-up 0.56s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animatePitch,
+  .animateForm {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .pitch {
+    position: static;
+  }
+
+  .pitchBody {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .formCard {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+}

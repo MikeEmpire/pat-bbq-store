@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 import styles from "./HeroSection.module.css";
@@ -10,6 +9,7 @@ function HeroSection() {
   return (
     <section
       id="hero"
+      tabIndex={-1}
       className={styles.hero}
       aria-labelledby="hero-heading"
     >
@@ -88,9 +88,9 @@ function HeroSection() {
           <a href={PHONE_HREF} className={styles.ctaPrimary}>
             Call Now
           </a>
-          <Link href="/menu" className={styles.ctaOutline}>
+          <a href="/#menu" className={styles.ctaOutline}>
             View Menu
-          </Link>
+          </a>
         </div>
 
       </div>

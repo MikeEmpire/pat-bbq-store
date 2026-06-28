@@ -11,23 +11,27 @@ export const sizes: SizeObject = {
 export const links: Array<PTrainMenuLink> = [
   {
     label: "Home",
-    link: "/",
-  },
-  {
-    label: "Menu",
-    link: "/menu",
-  },
-  {
-    label: "Book Catering",
-    link: "/bookus",
+    link: "/#hero",
   },
   {
     label: "About",
-    link: "/about",
+    link: "/#about",
+  },
+  {
+    label: "Services",
+    link: "/#services",
+  },
+  {
+    label: "Menu",
+    link: "/#menu",
+  },
+  {
+    label: "Testimonials",
+    link: "/#testimonials",
   },
   {
     label: "Contact",
-    link: "/contact",
+    link: "/#contact",
   },
 ];
 

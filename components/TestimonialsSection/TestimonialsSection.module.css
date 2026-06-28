@@ -1,0 +1,355 @@
+/* ── Section shell ──────────────────────────────────────────────────────────
+ *
+ * Ivory background contrasts with MenuSection's warm tan (--ptrain-color-surface-alt).
+ * Generous vertical padding gives the social proof room to breathe before
+ * the Booking CTA closes the page.
+ */
+.section {
+  background: var(--ptrain-color-background);
+  padding: 7rem var(--ptrain-section-padding-inline);
+}
+
+/* ── Layout container ───────────────────────────────────────────────────── */
+.container {
+  margin: 0 auto;
+  max-width: var(--ptrain-container-max);
+  width: 100%;
+}
+
+/* ── Section header ─────────────────────────────────────────────────────── */
+.header {
+  margin-bottom: 4rem;
+  max-width: 44ch;
+  opacity: 0;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: var(--ptrain-color-accent);
+  font-size: var(--ptrain-text-eyebrow);
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  margin-bottom: 0.875rem;
+  text-transform: uppercase;
+}
+
+.heading {
+  color: var(--ptrain-color-text);
+  font-family: var(--ptrain-font-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: var(--ptrain-line-heading);
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
+}
+
+.headingAccent {
+  color: var(--ptrain-color-primary);
+  font-style: italic;
+}
+
+.intro {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+/* ── Featured testimonial ───────────────────────────────────────────────── */
+/*
+ * Editorial hero treatment — large centered quote with a decorative open-quote
+ * mark, gold star rating, italic body, and small-caps attribution.
+ * Separated from the supporting grid by its own bordered panel.
+ */
+.featuredWrapper {
+  margin-bottom: 3.5rem;
+  opacity: 0;
+}
+
+.featuredInner {
+  background: var(--ptrain-color-surface);
+  border: 1px solid var(--ptrain-color-border);
+  border-radius: var(--ptrain-radius-card);
+  box-shadow: var(--ptrain-shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem 4rem;
+  position: relative;
+  text-align: center;
+}
+
+/* Oversized decorative open-quote in gold — purely ornamental */
+.featuredDecorQuote {
+  color: var(--ptrain-color-accent);
+  display: block;
+  font-family: var(--ptrain-font-display);
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 0.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.45;
+  user-select: none;
+}
+
+.featuredQuote {
+  max-width: 62ch;
+  margin-bottom: 2rem;
+}
+
+.featuredQuote p {
+  color: var(--ptrain-color-text);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.featuredFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+/* Thin gold rule separating quote from attribution */
+.featuredRule {
+  display: block;
+  width: 3rem;
+  height: 1.5px;
+  background: var(--ptrain-color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.featuredAttribution {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.featuredName {
+  color: var(--ptrain-color-text);
+  font-size: var(--ptrain-text-small);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.featuredEventType {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-small);
+  font-style: italic;
+}
+
+/* ── Supporting testimonial grid ────────────────────────────────────────── */
+/*
+ * 3-column grid on desktop. Reduces to 2-col on tablet, 1-col on mobile.
+ * Each card uses a subtle gold top accent border to tie the grid to the
+ * featured block's star gold without repeating large decorative elements.
+ *
+ * Future phase: replace static grid with filtered/paginated list.
+ * The grid wrapper can become position: relative for an overflow reveal,
+ * and the cards can be sorted/filtered by eventType.
+ */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Testimonial card ───────────────────────────────────────────────────── */
+.card {
+  background: var(--ptrain-color-surface);
+  border: 1px solid var(--ptrain-color-border);
+  border-radius: var(--ptrain-radius-card);
+  border-top: 3px solid var(--ptrain-color-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  padding: 1.75rem;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: var(--ptrain-shadow-card);
+  transform: translateY(-2px);
+}
+
+/* ── Stars ──────────────────────────────────────────────────────────────── */
+.stars {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.starFilled {
+  color: var(--ptrain-color-accent);
+  font-size: 0.875rem;
+}
+
+.starEmpty {
+  color: var(--ptrain-color-border-strong);
+  font-size: 0.875rem;
+}
+
+/* ── Card quote ─────────────────────────────────────────────────────────── */
+/*
+ * Line-clamp prevents tall cards when quotes vary in length.
+ * Future phase: add a "Read more" toggle that expands the clamp.
+ */
+.cardQuote {
+  flex: 1;
+}
+
+.cardQuote p {
+  color: var(--ptrain-color-text-muted);
+  display: -webkit-box;
+  font-size: var(--ptrain-text-body);
+  font-style: italic;
+  line-height: var(--ptrain-line-body);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+/* ── Card footer ────────────────────────────────────────────────────────── */
+.cardFooter {
+  align-items: center;
+  border-top: 1px solid var(--ptrain-color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding-top: 0.875rem;
+}
+
+.cardName {
+  color: var(--ptrain-color-text);
+  font-size: var(--ptrain-text-small);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cardEventType {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-small);
+  font-style: italic;
+}
+
+/* ── Source badge ───────────────────────────────────────────────────────── */
+/*
+ * Labels the review platform (Yelp, Google, Direct).
+ * Future phase: can include platform icon/logo or link to verified review.
+ */
+.sourceBadge {
+  background: var(--ptrain-color-accent-soft);
+  border-radius: var(--ptrain-radius-small);
+  color: var(--ptrain-color-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  text-transform: uppercase;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes testimonials-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Scroll-triggered entrance ──────────────────────────────────────────── */
+.visible .header,
+.visible .featuredWrapper,
+.visible .card {
+  animation: testimonials-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+    var(--delay, 0ms) both;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featuredInner {
+    padding: 2.75rem 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: var(--ptrain-section-padding-block-mobile)
+      var(--ptrain-section-padding-inline-mobile);
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+    text-align: left;
+    margin-inline: 0;
+  }
+
+  .intro {
+    margin-inline: 0;
+  }
+
+  .featuredInner {
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    text-align: left;
+  }
+
+  .featuredDecorQuote {
+    font-size: 4rem;
+  }
+
+  .featuredAttribution {
+    justify-content: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    /* On very small screens, allow horizontal scroll so cards don't
+       collapse to a single tiny column. Snap to full card width.
+       Future phase: replace with a proper swipe carousel. */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* ── Accessibility: respect reduced motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .featuredWrapper,
+  .card {
+    opacity: 1;
+  }
+
+  .visible .header,
+  .visible .featuredWrapper,
+  .visible .card {
+    animation: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

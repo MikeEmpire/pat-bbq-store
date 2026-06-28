@@ -49,14 +49,14 @@ Every CTA on the page should support one of these two outcomes.
 | # | Section | Journey Phase | Implementation Status |
 |---|---------|---------------|-----------------------|
 | 1 | Hero | Curiosity | Complete (June 27, 2026) |
-| 2 | Trust Bar | Trust | Not started |
+| 2 | Trust Bar | Trust | Complete (June 27, 2026) |
 | 3 | About | Trust | Complete (June 27, 2026) |
-| 4 | Catering Services | Interest | Not started |
+| 4 | Catering Services | Interest | Complete (June 27, 2026) |
 | 5 | Menu Preview | Interest | In progress |
 | 6 | Gallery | Proof | Not started |
-| 7 | Testimonials | Proof | Not started |
-| 8 | Booking CTA | Action | Audited |
-| 9 | Footer | — | Audited |
+| 7 | Testimonials | Proof | Implemented with placeholder content; not launch-ready |
+| 8 | Booking CTA | Action | Complete (June 27, 2026) |
+| 9 | Footer | — | Complete (June 27, 2026) |
 
 ---
 
@@ -91,7 +91,7 @@ Every CTA on the page should support one of these two outcomes.
 **CTAs:**
 
 - Primary: `tel:+19517723910` (verified current-app number — do not change without client confirmation)
-- Secondary: `/menu` route
+- Secondary: `/#menu` homepage anchor
 
 **Implementation:**
 
@@ -132,8 +132,9 @@ Every CTA on the page should support one of these two outcomes.
 
 **Implementation:**
 
-- Component: does not exist yet — create `components/TrustBar/TrustBar.tsx` when this section is built
-- Consider whether the existing `components/Ticker/Ticker.tsx` satisfies this section or runs separately below the Hero
+- Component: `components/TrustBar/TrustBar.tsx`
+- Canonical anchor: `/#trust`
+- The Ticker remains a separate visual transition and is not a navigation destination
 
 ---
 
@@ -188,11 +189,12 @@ Every CTA on the page should support one of these two outcomes.
 
 **SEO note:**
 
-Each service listed here is a long-term candidate for its own dedicated landing page. The homepage section functions as a directory that links out to those future pages. Build the service cards with this routing architecture in mind from the start — use anchor or route links, not static text.
+Each service listed here is a long-term candidate for its own dedicated landing page. Until those pages exist, navigation should point to the homepage Services section rather than speculative routes that return 404s.
 
 **Implementation:**
 
-- Component: does not exist yet — create `components/ServicesSection/ServicesSection.tsx` when this section is built
+- Component: `components/ServicesSection/ServicesSection.tsx`
+- Canonical anchor: `/#services`
 - Use `.ds-service-card` and `.ds-card-grid` global classes from `styles/globals.css`
 
 ---
@@ -219,14 +221,16 @@ Each service listed here is a long-term candidate for its own dedicated landing 
 
 **CTAs:**
 
-- "View Full Menu" → `/menu` route
+- Primary site navigation → `/#menu`
+- "View Full Menu" → the current verified menu asset until `/bbq-menu` exists
 - "Request a Quote" → contact action (phone or form)
 
 **Implementation:**
 
-- Existing component: `components/Menu/Menu.tsx` (updated June 27, 2026 to display new menu image)
-- Full section redesign is still pending — current implementation is the lightbox image only
-- Styles: `components/Menu/Menu.module.css`
+- Component: `components/MenuSection/MenuSection.tsx`
+- Canonical anchor: `/#menu`
+- Full-menu asset: `/menu/new-menu.PNG`
+- Styles: `components/MenuSection/MenuSection.module.css`
 
 ---
 
@@ -278,7 +282,9 @@ Each service listed here is a long-term candidate for its own dedicated landing 
 
 **Implementation:**
 
-- Component: does not exist yet — create `components/Testimonials/Testimonials.tsx` when this section is built
+- Component: `components/TestimonialsSection/TestimonialsSection.tsx`
+- Canonical anchor: `/#testimonials`
+- The current component contains explicit placeholder content and is not launch-ready until every review is replaced with verified client material
 
 ---
 
@@ -308,9 +314,11 @@ Each service listed here is a long-term candidate for its own dedicated landing 
 
 **Implementation:**
 
-- Component: does not exist yet — create `components/BookingCTA/BookingCTA.tsx` when this section is built
-- The existing `components/BookUs/BookUs.tsx` may be refactored into this component
-- Styles: use `.ds-section--primary` (burgundy) or `.ds-section--alt` (warm ivory) for visual contrast from surrounding sections
+- Component: `components/BookingCTA/BookingCTA.tsx`
+- Canonical anchor: `/#booking`
+- Styles: `components/BookingCTA/BookingCTA.module.css`
+- Book Catering navigation and the legacy `/bookus` redirect target this section
+- Form delivery and monitoring remain a launch-verification requirement
 
 ---
 
@@ -334,8 +342,59 @@ Each service listed here is a long-term candidate for its own dedicated landing 
 **Implementation:**
 
 - Existing component: `components/Footer/Footer.tsx`
+- Canonical anchor: `/#contact`
 - Styles: `components/Footer/Footer.module.css`
-- Full redesign pending; current implementation is the pre-redesign footer
+- The footer renders shared homepage navigation plus the Book Catering anchor
+
+---
+
+## Navigation and Routing Strategy
+
+The homepage is the canonical marketing experience. Shared navigation uses root-relative anchors so destinations work from the homepage and any preserved legacy route.
+
+### Canonical homepage section IDs
+
+| Destination | ID | Current state |
+|---|---|---|
+| Home / Hero | `hero` | Rendered |
+| Trust Bar | `trust` | Rendered; not shown in primary navigation |
+| About | `about` | Rendered |
+| Services | `services` | Rendered |
+| Menu | `menu` | Rendered |
+| Testimonials | `testimonials` | Rendered; content verification remains a launch gate |
+| Contact / Footer | `contact` | Rendered |
+| Booking | `booking` | Rendered |
+
+Primary navigation order is Home, About, Services, Menu, Testimonials, and Contact. Book Catering remains a visually distinct CTA and points to `/#booking`.
+
+Anchor targets use the fixed-header offset in `styles/globals.css`. Smooth scrolling is disabled when the visitor prefers reduced motion.
+
+The Header uses a lightweight scrollspy to correlate navigation state with the visible section. Home remains active through the hero/trust introduction; About, Services, Menu, and Testimonials activate their matching links; Booking activates the Book Catering CTA; and the footer activates Contact. Scrollspy does not modify the URL or browser history.
+
+### Current route decisions
+
+| Route | Decision | Rationale |
+|---|---|---|
+| `/` | Keep as canonical experience | Contains the full marketing journey and all current navigation destinations. |
+| `/about` | Temporary redirect to `/#about`; preserve source file | Duplicates the current About section and may be retired after the one-page strategy stabilizes. |
+| `/bookus` | Temporary redirect to `/#booking`; preserve source file | The homepage now contains the canonical booking experience. |
+| `/contact` | Temporary redirect to `/#contact`; preserve source file | The form delivery is unverified; retain the route for future dedicated contact-page SEO. |
+| `/menu` | No active page route | The former page file is already removed in the current worktree. Site navigation uses `/#menu`; the full-menu action opens the static menu asset. |
+
+The preserved `/about`, `/bookus`, and `/contact` page files should not be deleted during navigation work. Reassess them when dedicated landing pages are implemented and redirects can become permanent.
+
+### Future SEO expansion
+
+Create these pages only when each has unique, verified content and a deliberate landing-page strategy:
+
+- `/corporate-catering`
+- `/wedding-catering`
+- `/private-party-catering`
+- `/festival-catering`
+- `/bbq-menu`
+- `/contact`
+
+Until then, keep homepage anchors canonical and do not expose unimplemented routes in navigation or service cards.
 
 ---
 
@@ -377,7 +436,7 @@ The homepage should naturally target the following phrases. These must appear or
 
 **Long-term architecture:**
 
-Each major catering service type (Corporate, Wedding, Festival, etc.) should receive its own dedicated SEO landing page. The homepage Catering Services section functions as the index. Build all service cards with route links rather than static copy so the architecture is ready when those pages are created.
+Each major catering service type should eventually receive a dedicated SEO landing page using the paths documented in Navigation and Routing Strategy. The homepage Catering Services section is the current index. Add route links only after the corresponding landing pages exist.
 
 ---
 

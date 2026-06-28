@@ -91,6 +91,17 @@
   color: var(--ptrain-color-primary);
 }
 
+.brand:focus-visible,
+.nav__link:focus-visible,
+.phone__link:focus-visible,
+.cta__link:focus-visible,
+.mobile__toggle:focus-visible,
+.mobile__phone:focus-visible,
+.mobile__cta:focus-visible {
+  outline: 3px solid var(--ptrain-color-accent);
+  outline-offset: 3px;
+}
+
 .nav__link__active {
   background: var(--ptrain-color-accent-soft);
 }
@@ -141,6 +152,11 @@
 .mobile__cta:hover {
   background: var(--ptrain-color-primary-hover);
   border-color: var(--ptrain-color-primary-hover);
+}
+
+.cta__link__active {
+  background: var(--ptrain-color-primary-hover);
+  border-color: var(--ptrain-color-accent);
 }
 
 .mobile__toggle {

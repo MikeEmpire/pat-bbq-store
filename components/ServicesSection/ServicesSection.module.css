@@ -1,0 +1,222 @@
+/* ── Section shell ───────────────────────────────────────────────── */
+/*
+ * Base ivory — contrasts with About's warm tan (surface-alt).
+ * No overflow:hidden — the image strip needs to scroll on mobile.
+ */
+.section {
+  background: var(--ptrain-color-background);
+  padding: var(--ptrain-section-padding-block) var(--ptrain-section-padding-inline);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--ptrain-container-max);
+  width: 100%;
+}
+
+/* ── Section header — two-column split ───────────────────────────── */
+/*
+ * Left: eyebrow + large heading.
+ * Right: supporting paragraph, baseline-aligned with the heading.
+ * The split makes the heading assertive while the copy stays supportive.
+ */
+.sectionHeader {
+  align-items: flex-end;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 4.5rem;
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.eyebrow {
+  color: var(--ptrain-color-accent);
+  font-size: var(--ptrain-text-eyebrow);
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  margin-bottom: 0.875rem;
+  text-transform: uppercase;
+}
+
+.heading {
+  color: var(--ptrain-color-text);
+  font-family: var(--ptrain-font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: var(--ptrain-line-heading);
+  text-wrap: balance;
+}
+
+.headerRight {
+  /* nudge so body text aligns near the bottom of the heading */
+  padding-bottom: 0.25rem;
+}
+
+.headerBody {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+  max-width: 46ch;
+}
+
+/* ── 2×2 service grid ────────────────────────────────────────────── */
+/*
+ * Text-only items with hairline border separators.
+ * No cards, no images, no shadows — quiet and spacious.
+ * Top border on the grid + bottom border on each item creates
+ * a clean ruled table feel without heavy decoration.
+ */
+.servicesGrid {
+  border-top: 1px solid var(--ptrain-color-border);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0 0 4.5rem;
+  padding: 0;
+}
+
+.serviceItem {
+  border-bottom: 1px solid var(--ptrain-color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  padding: 2.5rem 2rem 2.5rem 0;
+  transform: translateY(1rem);
+}
+
+/* Right-column items: left divider + matching inset padding */
+.serviceItem:nth-child(even) {
+  border-left: 1px solid var(--ptrain-color-border);
+  padding-left: 2rem;
+}
+
+.serviceNumber {
+  color: var(--ptrain-color-accent);
+  display: block;
+  font-size: var(--ptrain-text-eyebrow);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  line-height: 1;
+}
+
+.serviceTitle {
+  color: var(--ptrain-color-text);
+  font-family: var(--ptrain-font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.serviceBody {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+  max-width: 36ch;
+}
+
+/* ── Proof image strip ───────────────────────────────────────────── */
+/*
+ * Three real event photos. Sits below the service grid as a quiet
+ * confirmation — not a gallery, not a slideshow. Just proof.
+ * Desktop: 3-column equal grid.
+ * Mobile: horizontal scroll with snap (see responsive block below).
+ */
+.imageStrip {
+  display: grid;
+  gap: var(--ptrain-card-gap);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.stripImage {
+  aspect-ratio: 4 / 3;
+  background: var(--ptrain-color-muted-surface);
+  border-radius: var(--ptrain-radius-media);
+  overflow: hidden;
+  position: relative;
+}
+
+.stripImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Keyframes ───────────────────────────────────────────────────── */
+@keyframes services-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Scroll-triggered entrance ───────────────────────────────────── */
+.visible .sectionHeader,
+.visible .serviceItem,
+.visible .imageStrip {
+  animation: services-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+
+/* ── Responsive — mobile (≤767px) ────────────────────────────────── */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--ptrain-section-padding-block-mobile)
+      var(--ptrain-section-padding-inline-mobile);
+  }
+
+  /* Header stacks: heading takes full width, copy follows below */
+  .sectionHeader {
+    align-items: flex-start;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    margin-bottom: 3rem;
+  }
+
+  .servicesGrid {
+    margin-bottom: 3rem;
+  }
+
+  /* Image strip: horizontal scroll with snap */
+  .imageStrip {
+    display: flex;
+    gap: 0.875rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .imageStrip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stripImage {
+    flex: 0 0 75vw;
+    scroll-snap-align: start;
+  }
+}
+
+/* ── Accessibility: respect reduced motion ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .sectionHeader,
+  .serviceItem,
+  .imageStrip {
+    opacity: 1;
+    transform: none;
+  }
+
+  .visible .sectionHeader,
+  .visible .serviceItem,
+  .visible .imageStrip {
+    animation: none;
+  }
+}
