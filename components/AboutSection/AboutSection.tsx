@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./AboutSection.module.css";
@@ -96,9 +97,19 @@ function AboutSection() {
               <a href={PHONE_HREF} className="ds-button-primary">
                 Call to Book
               </a>
-              <a href="/#menu" className="ds-button-secondary">
+              <Link
+                href="/#menu"
+                className="ds-button-secondary"
+                scroll={false}
+                onClick={() => {
+                  const el = document.getElementById("menu");
+                  if (!el) return;
+                  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                  el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+                }}
+              >
                 View Menu
-              </a>
+              </Link>
             </div>
 
           </div>

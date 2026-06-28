@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 
@@ -93,22 +94,31 @@ function Header() {
 
   const isBookingActive = router.pathname === "/" && activeSection === "booking";
 
+  const smoothScrollTo = (href: string) => {
+    const id = href.split("#")[1];
+    const el = id ? document.getElementById(id) : null;
+    if (!el) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+  };
+
   const renderNavLinks = () =>
     links.map((item) => {
       const isActive = isActiveLink(item.link);
 
       return (
         <li key={item.label}>
-          <a
+          <Link
             aria-current={isActive ? "location" : undefined}
             className={`${styles.nav__link} ${
               isActive ? styles.nav__link__active : ""
             }`}
             href={item.link}
-            onClick={() => setIsOpen(false)}
+            scroll={false}
+            onClick={() => { setIsOpen(false); smoothScrollTo(item.link); }}
           >
             {item.label}
-          </a>
+          </Link>
         </li>
       );
     });
@@ -116,11 +126,12 @@ function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav__container} aria-label="Primary navigation">
-        <a
+        <Link
           className={styles.brand}
           href="/#hero"
           aria-label="P Train's BBQ home"
-          onClick={() => setIsOpen(false)}
+          scroll={false}
+          onClick={() => { setIsOpen(false); smoothScrollTo("/#hero"); }}
         >
           <span className={styles.logo__mark}>
             <Image
@@ -136,7 +147,7 @@ function Header() {
             <span>P Train&apos;s</span>
             <strong>BBQ</strong>
           </span>
-        </a>
+        </Link>
 
         <ul className={styles.nav__list}>{renderNavLinks()}</ul>
 
@@ -144,15 +155,17 @@ function Header() {
           <a className={styles.phone__link} href={PHONE_HREF}>
             Call {PHONE_NUMBER}
           </a>
-          <a
+          <Link
             aria-current={isBookingActive ? "location" : undefined}
             className={`${styles.cta__link} ${
               isBookingActive ? styles.cta__link__active : ""
             }`}
             href="/#booking"
+            scroll={false}
+            onClick={() => smoothScrollTo("/#booking")}
           >
             Book Catering
-          </a>
+          </Link>
         </div>
 
         <button
@@ -186,16 +199,17 @@ function Header() {
         >
           Call {PHONE_NUMBER}
         </a>
-        <a
+        <Link
           aria-current={isBookingActive ? "location" : undefined}
           className={`${styles.mobile__cta} ${
             isBookingActive ? styles.cta__link__active : ""
           }`}
           href="/#booking"
-          onClick={() => setIsOpen(false)}
+          scroll={false}
+          onClick={() => { setIsOpen(false); smoothScrollTo("/#booking"); }}
         >
           Book Catering
-        </a>
+        </Link>
       </nav>
     </header>
   );

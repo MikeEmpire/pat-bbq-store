@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { links } from "../../constants";
 import styles from "./Footer.module.css";
@@ -86,6 +87,14 @@ function BackToTopButton() {
   );
 }
 
+function smoothScrollTo(href: string) {
+  const id = href.split("#")[1];
+  const el = id ? document.getElementById(id) : null;
+  if (!el) return;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -107,7 +116,7 @@ export default function Footer() {
           <div className={styles.grid}>
             {/* ── Brand column ─────────────────────────────────────── */}
             <div className={styles.brandCol}>
-              <a href="/#hero" className={styles.logoLink} aria-label="PTrain's BBQ — back to top">
+              <Link href="/#hero" className={styles.logoLink} aria-label="PTrain's BBQ — back to top" scroll={false} onClick={() => smoothScrollTo("/#hero")}>
                 <Image
                   src="/logo.png"
                   alt="PTrain's BBQ logo"
@@ -115,7 +124,7 @@ export default function Footer() {
                   height={64}
                   className={styles.logo}
                 />
-              </a>
+              </Link>
               <p className={styles.brandName}>PTrain&rsquo;s BBQ</p>
               <p className={styles.brandTagline}>
                 Wood-Smoked Catering.<br />
@@ -145,9 +154,9 @@ export default function Footer() {
               <ul className={styles.navList} aria-labelledby="footer-nav-heading">
                 {footerNavLinks.map((l) => (
                   <li key={l.label}>
-                    <a href={l.link} className={styles.navLink}>
+                    <Link href={l.link} className={styles.navLink} scroll={false} onClick={() => smoothScrollTo(l.link)}>
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

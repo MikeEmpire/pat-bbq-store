@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 import styles from "./HeroSection.module.css";
@@ -88,9 +89,19 @@ function HeroSection() {
           <a href={PHONE_HREF} className={styles.ctaPrimary}>
             Call Now
           </a>
-          <a href="/#menu" className={styles.ctaOutline}>
+          <Link
+            href="/#menu"
+            className={styles.ctaOutline}
+            scroll={false}
+            onClick={() => {
+              const el = document.getElementById("menu");
+              if (!el) return;
+              const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+              el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+            }}
+          >
             View Menu
-          </a>
+          </Link>
         </div>
 
       </div>
