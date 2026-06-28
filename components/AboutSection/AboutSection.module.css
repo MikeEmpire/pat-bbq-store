@@ -1,0 +1,167 @@
+/* ── Section shell ──────────────────────────────────────────────── */
+.section {
+  background: var(--ptrain-color-surface-alt);
+  overflow: hidden;
+  padding: var(--ptrain-section-padding-block) var(--ptrain-section-padding-inline);
+}
+
+/* ── Layout ─────────────────────────────────────────────────────── */
+.container {
+  margin: 0 auto;
+  max-width: var(--ptrain-container-max);
+  width: 100%;
+}
+
+.grid {
+  align-items: center;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 55fr 45fr;
+}
+
+/* ── Text column ─────────────────────────────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Default state: invisible. Animations fire when .visible is present. */
+.eyebrow {
+  color: var(--ptrain-color-accent);
+  font-size: var(--ptrain-text-eyebrow);
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  opacity: 0;
+  text-transform: uppercase;
+}
+
+.heading {
+  color: var(--ptrain-color-text);
+  font-family: var(--ptrain-font-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: var(--ptrain-line-heading);
+  max-width: 16ch;
+  opacity: 0;
+  text-wrap: balance;
+}
+
+.headingAccent {
+  color: var(--ptrain-color-primary);
+  font-style: italic;
+}
+
+.body {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+  max-width: 52ch;
+  opacity: 0;
+}
+
+.ctaRow {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  opacity: 0;
+}
+
+/* ── Image column ────────────────────────────────────────────────── */
+.imageCol {
+  margin: 0;
+  opacity: 0;
+}
+
+.imageFrame {
+  aspect-ratio: 1 / 1;
+  background: var(--ptrain-color-muted-surface);
+  border-radius: var(--ptrain-radius-media);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.caption {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-top: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ── Keyframes ───────────────────────────────────────────────────── */
+@keyframes about-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Scroll-triggered entrance (fires once .visible is added) ────── */
+.visible .eyebrow,
+.visible .heading,
+.visible .body,
+.visible .ctaRow,
+.visible .imageCol {
+  animation: about-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (min-width: 640px) {
+  .ctaRow {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: var(--ptrain-section-padding-block-mobile)
+      var(--ptrain-section-padding-inline-mobile);
+  }
+
+  .grid {
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .imageFrame {
+    margin: 0 auto;
+    max-width: 18rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+  }
+}
+
+/* ── Accessibility: respect reduced motion ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .heading,
+  .body,
+  .ctaRow,
+  .imageCol {
+    opacity: 1;
+  }
+
+  .visible .eyebrow,
+  .visible .heading,
+  .visible .body,
+  .visible .ctaRow,
+  .visible .imageCol {
+    animation: none;
+  }
+}

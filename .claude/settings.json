@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E '\\\\.\\(jpg|jpeg|png|webp|gif|svg\\)$')",
+      "Bash(npx next:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(node -e \"const p = require\\('./package.json'\\); console.log\\(JSON.stringify\\({...p.dependencies, ...p.devDependencies}, null, 2\\)\\)\")"
+    ]
+  }
+}

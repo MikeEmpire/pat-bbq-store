@@ -17,6 +17,32 @@
 | `public/logo.png` | Text brand wordmark in Figma nav/footer | Decide whether to preserve logo image, use text wordmark, or combine both. |
 | `public/CateringMenu.jpg` / `.png` | `src/imports/_menu_2025PTrainsCateringMenu.png` | Determine which menu image is current. Do not overwrite without verification. |
 
+## Design System Foundation
+
+Implemented June 26, 2026 in `styles/globals.css`, `tailwind.config.js`, and `components/Header/Header.module.css`.
+
+Production styling approach:
+
+- CSS custom properties are the source of truth for brand tokens.
+- Global `.ds-*` classes provide reusable section/layout/type/button/card/media primitives.
+- Tailwind 3 theme extensions mirror the same tokens for existing utility-class workflows.
+- CSS Modules remain appropriate for component-specific styling.
+
+Reusable global classes for future section agents:
+
+| Need | Use |
+| --- | --- |
+| Full-width band | `.ds-section`, `.ds-section--alt`, `.ds-section--primary` |
+| Container | `.ds-container` |
+| Narrow readable content | `.ds-content`, `.ds-content--centered` |
+| Responsive layout | `.ds-two-column`, `.ds-responsive-stack`, `.ds-stack` |
+| Type hierarchy | `.ds-display`, `.ds-section-heading`, `.ds-body`, `.ds-small`, `.ds-eyebrow` |
+| CTAs | `.ds-button-primary`, `.ds-button-secondary`, `.ds-button-text` |
+| Cards | `.ds-card`, `.ds-menu-card`, `.ds-trust-card`, `.ds-service-card`, `.ds-image-card`, `.ds-card-grid` |
+| Media | `.ds-media`, `.ds-media-fill`, `.ds-image` |
+
+Do not create full page sections by copying the Figma generated code. Build future sections from these primitives plus local CSS Modules where a component needs specific behavior.
+
 ## Figma UI Folder
 
 The export's `src/app/components/ui/` folder contains generic shadcn/Radix-style components. The current app has no matching design system layer. Importing the folder wholesale is not recommended.

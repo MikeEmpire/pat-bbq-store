@@ -43,12 +43,30 @@ The live app currently has local Gilroy fonts. Before implementation, decide whe
 
 Do not add remote Google font imports casually in production without deciding performance and privacy expectations.
 
+### Foundation Decision - June 26, 2026
+
+The production design system foundation now keeps the existing local Gilroy font files and exposes reusable font variables in `styles/globals.css`:
+
+- `--ptrain-font-body`
+- `--ptrain-font-display`
+- `--ptrain-font-mono`
+
+Fraunces/Outfit remain Figma reference only for now. Future section agents should use the global typography classes (`.ds-display`, `.ds-section-heading`, `.ds-body`, `.ds-small`, `.ds-eyebrow`) instead of hardcoding one-off type sizes.
+
 ## Spacing and Shape
 
 - Use generous section padding for desktop, tighter but still breathable spacing on mobile.
 - Prefer full-width section bands and clean grids.
 - Use low or zero border radius for a premium editorial feel; the Figma export sets `--radius: 0rem`.
 - Avoid nested card structures and decorative containers that make the catering flow feel busy.
+
+The production foundation uses low-radius primitives rather than the older starter `12px` radius:
+
+- Cards: `--ptrain-radius-card: 0.375rem`
+- Media: `--ptrain-radius-media: 0.5rem`
+- Section/container spacing variables for desktop and mobile
+
+This is a deliberate slight deviation from Figma's zero radius so image/cards feel polished while staying under the low-radius premium direction.
 
 ## Components and UI
 
@@ -72,3 +90,11 @@ Catering booking is the main conversion goal. Every major page segment should su
 - Learn the family story enough to trust the business.
 
 Phone and email details must be verified before implementation.
+
+CTA foundation classes now exist in `styles/globals.css`:
+
+- `.ds-button-primary` for catering inquiry/booking actions.
+- `.ds-button-secondary` for contact/menu alternatives.
+- `.ds-button-text` for lower-emphasis link CTAs.
+
+Use verified current-app phone routing for call CTAs until the phone/email conflict is resolved.

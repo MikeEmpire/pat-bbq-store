@@ -1,0 +1,96 @@
+/* ─── HeroPromoCard.module.css ─────────────────────────────────────────────────
+   Premium promotional card — brass nameplate / locomotive plaque aesthetic.
+   Positioned above the hero headline to anchor the visual hierarchy.
+
+   Two variants:
+     .brass     — deep burgundy plate with gold lettering (hero default)
+     .parchment — warm ivory card for light-surface contexts
+──────────────────────────────────────────────────────────────────────────────── */
+
+.card {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 0.7rem 1.125rem 0.8rem;
+  /* Double-rule top rail: classic engraved nameplate convention */
+  border-top: 4px double var(--ptrain-color-accent);
+  border-right: 1px solid rgba(196, 135, 42, 0.28);
+  border-bottom: 1px solid rgba(196, 135, 42, 0.28);
+  border-left: 1px solid rgba(196, 135, 42, 0.28);
+}
+
+/* ── Brass: deep burgundy plate with gold + ivory lettering ── */
+.brass {
+  background-color: var(--ptrain-color-primary);
+}
+
+/* ── Parchment: warm ivory for light-surface placements ── */
+.parchment {
+  background-color: var(--ptrain-color-surface-alt);
+  border-right-color: rgba(196, 135, 42, 0.38);
+  border-bottom-color: rgba(196, 135, 42, 0.38);
+  border-left-color: rgba(196, 135, 42, 0.38);
+}
+
+/* Optional icon above the title */
+.icon {
+  display: block;
+  color: var(--ptrain-color-accent);
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  line-height: 1;
+}
+
+/* "COMPLIMENTARY" — tiny eyebrow label in gold */
+.title {
+  font-family: var(--ptrain-font-body);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ptrain-color-accent);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+/* "TASTING" — the emphasis word; rendered large and bold */
+.subtitle {
+  font-family: var(--ptrain-font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+  /* brass: ivory text */
+  color: var(--ptrain-color-cta-text);
+}
+
+.parchment .subtitle {
+  color: var(--ptrain-color-text);
+}
+
+/* Supporting copy — confidence, not desperation */
+.description {
+  font-size: var(--ptrain-text-small);
+  line-height: 1.45;
+  margin-top: 0.45rem;
+  max-width: 17rem;
+  /* brass: muted ivory */
+  color: rgba(248, 244, 237, 0.6);
+}
+
+.parchment .description {
+  color: var(--ptrain-color-text-muted);
+}
+
+/* ── Mobile: tighten card spacing so content stays comfortable ── */
+@media (max-width: 639px) {
+  .card {
+    margin-bottom: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}

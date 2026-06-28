@@ -1,33 +1,76 @@
 # Implementation Plan
 
-## 1. Navigation
+## 0. Design System Foundation
+
+Status: Complete on June 26, 2026.
 
 Source files:
 
-- Current: `components/Header.tsx`, `styles/Header.module.css`, `constants/index.ts`
+- Current: `styles/globals.css`, `tailwind.config.js`, `components/Header/Header.module.css`
+- Figma reference: `Website Redesign for PTrain's BBQ/src/styles/theme.css`, `Website Redesign for PTrain's BBQ/src/styles/fonts.css`, and reusable patterns in `Website Redesign for PTrain's BBQ/src/app/App.tsx`
+
+Target files:
+
+- `styles/globals.css`
+- `tailwind.config.js`
+- `components/Header/Header.module.css`
+
+Completed changes:
+
+- Added PTrain-specific CSS custom properties for ivory/warm backgrounds, burgundy primary, gold accent, dark/muted text, card surfaces, borders, CTA states, typography, spacing, shape, and media defaults.
+- Added global reusable `.ds-*` classes for section wrappers, containers, content widths, two-column layouts, responsive stacks, typography, CTA buttons, cards, card grids, and media/image behavior.
+- Extended Tailwind 3 config with matching token aliases and fixed content globs to include nested `pages/**/*` and `components/**/*` files.
+- Updated the already-redesigned header CSS to consume shared variables instead of repeating palette literals.
+- Kept local Gilroy as the production font foundation; did not import Fraunces/Outfit or any new dependencies.
+
+Validation:
+
+- `npm run lint` remains blocked by existing `react/no-unescaped-entities` errors in `components/About/About.tsx`.
+- `npx next lint --file components/Header/Header.tsx --file constants/index.ts` passed.
+- `npx tailwindcss -i styles/globals.css -o /private/tmp/ptrain-globals.css --content './pages/**/*.{js,ts,jsx,tsx,mdx}' --content './components/**/*.{js,ts,jsx,tsx,mdx}'` passed.
+- `npm run build` remains blocked because the imported Figma Vite app is included in TypeScript and references uninstalled `lucide-react`.
+- Dev server route smoke checks returned `200 OK` for `/`, `/menu`, `/contact`, and `/about`.
+- Headless Chrome screenshots after the intro animation confirmed the existing homepage renders on desktop and mobile.
+
+Future section agents should use these tokens/classes before adding one-off CSS. This task intentionally did not migrate hero, menu, about, CTA, footer, or any other full page section.
+
+## 1. Navigation
+
+Status: Complete as Section 1 on June 26, 2026.
+
+Source files:
+
+- Current: `components/Header/Header.tsx`, `components/Header/Header.module.css`, `constants/index.ts`
 - Figma reference: `Website Redesign for PTrain's BBQ/src/app/App.tsx` navigation block
 
 Target files:
 
-- `components/Header.tsx`
-- `styles/Header.module.css`
+- `components/Header/Header.tsx`
+- `components/Header/Header.module.css`
 - `constants/index.ts`
 
 Expected changes:
 
-- Redesign header with stronger PTrain's BBQ brand treatment, clearer desktop navigation, and mobile menu.
-- Add a prominent catering/contact CTA after contact details are verified.
-- Fix current nav mismatch where `Book Us` links to `/#bookus` but the section id is `homebookus`.
+- Redesign header with stronger PTrain's BBQ brand treatment, clearer desktop navigation, and mobile menu. Completed.
+- Add a prominent catering/contact CTA after contact details are verified. Completed using current app phone `951-772-3910` and existing `/bookus` route.
+- Fix current nav mismatch where `Book Us` links to `/#bookus` but the section id is `homebookus`. Not applicable in current code; route was `/bookus`, label updated to `Book Catering`.
 - Preserve Next.js routing and avoid importing the Figma Vite structure.
 
 Risk level: Medium
 
 Validation steps:
 
-- Verify desktop and mobile menus.
-- Confirm all anchor links land on existing section ids.
-- Confirm keyboard/tap accessibility for menu toggle.
-- Confirm phone CTA uses verified number.
+- Verify desktop and mobile menus. Completed with headless Chrome/CDP at 1440x900 and 390x844.
+- Confirm all anchor links land on existing section ids. Completed as route links instead of section anchors; `/menu`, `/bookus`, `/about`, and `/contact` smoke checked with `200 OK`.
+- Confirm keyboard/tap accessibility for menu toggle. Completed semantically with a real button, `aria-controls`, `aria-expanded`, and visible/tappable mobile state.
+- Confirm phone CTA uses verified number. Completed using current app number `951-772-3910`; Figma number remains unverified.
+
+Implementation notes:
+
+- Removed dead `Shop (coming soon)` nav item from the shared links array.
+- Kept existing `public/logo.png` and added a text wordmark instead of introducing new fonts or icon dependencies.
+- Used CSS Modules only; no new dependencies.
+- Full `npm run lint` and `npm run build` are currently blocked by unrelated existing lint/type scope issues documented in `agent-notes.md`.
 
 ## 2. Hero
 
@@ -135,7 +178,7 @@ Expected changes:
 - Add a strong final catering booking section before footer.
 - Clarify primary action: phone, email, or contact form.
 - Decide whether the current form should remain, be redesigned, or be replaced with mail/phone CTAs.
-- Current form only logs data to console, so production behavior must be addressed before presenting it as a real booking form.
+- Current form posts to the external `contactFormURL`; production delivery/monitoring should still be verified before presenting it as the primary booking path.
 
 Risk level: High
 

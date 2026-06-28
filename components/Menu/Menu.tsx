@@ -41,8 +41,8 @@ function Menu() {
           height={400}
           width={200}
           onClick={openLightbox}
-          alt="P Train's 2025 BBQ Menu"
-          src="/menu/2025PTrainsCateringMenu.png"
+          alt="P Train's BBQ Catering Menu"
+          src="/menu/2026PTrainsCateringMenu.png"
           className="mb-5 md:mb-0 md:w-10/12 cursor-pointer"
         />
         <>
@@ -50,7 +50,7 @@ function Menu() {
             open={isLightboxOpen}
             plugins={[Zoom]}
             close={closeLightbox}
-            slides={[{ src: "/CateringMenu.jpg" }]}
+            slides={[{ src: "/menu/2026PTrainsCateringMenu.png" }]}
           />
         </>
         <figcaption className="md:text-3xl">

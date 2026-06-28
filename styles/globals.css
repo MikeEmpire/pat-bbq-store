@@ -3,78 +3,100 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
+  --ptrain-color-background: #f8f4ed;
+  --ptrain-color-surface: #fbf8f2;
+  --ptrain-color-surface-alt: #efe8d8;
+  --ptrain-color-muted-surface: #e8dfcc;
+  --ptrain-color-primary: #6b1d2a;
+  --ptrain-color-primary-hover: #231409;
+  --ptrain-color-primary-active: #531520;
+  --ptrain-color-accent: #c4872a;
+  --ptrain-color-accent-soft: rgba(196, 135, 42, 0.16);
+  --ptrain-color-text: #231409;
+  --ptrain-color-text-muted: #7a6a52;
+  --ptrain-color-border: rgba(35, 20, 9, 0.12);
+  --ptrain-color-border-strong: rgba(35, 20, 9, 0.22);
+  --ptrain-color-cta-text: #f8f4ed;
+  --ptrain-color-primary-rgb: 107, 29, 42;
+  --ptrain-color-accent-rgb: 196, 135, 42;
+  --ptrain-color-text-rgb: 35, 20, 9;
+
+  --ptrain-font-body: "Gilroy", Arial, Helvetica, sans-serif;
+  --ptrain-font-display: "Gilroy", Georgia, serif;
+  --ptrain-font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New",
+    monospace;
+
+  --ptrain-text-display: 5.5rem;
+  --ptrain-text-section: 3.25rem;
+  --ptrain-text-body: 1rem;
+  --ptrain-text-small: 0.875rem;
+  --ptrain-text-button: 0.76rem;
+  --ptrain-text-eyebrow: 0.72rem;
+
+  --ptrain-line-display: 0.92;
+  --ptrain-line-heading: 1.02;
+  --ptrain-line-body: 1.65;
+
+  --ptrain-container-max: 1180px;
+  --ptrain-content-max: 720px;
+  --ptrain-section-padding-block: 7rem;
+  --ptrain-section-padding-inline: 2rem;
+  --ptrain-section-padding-block-mobile: 4.5rem;
+  --ptrain-section-padding-inline-mobile: 1.25rem;
+  --ptrain-card-padding: 2rem;
+  --ptrain-card-gap: 1.25rem;
+  --ptrain-button-padding-block: 0.95rem;
+  --ptrain-button-padding-inline: 1.5rem;
+  --ptrain-button-padding-mobile-inline: 1.15rem;
+
+  --ptrain-radius-none: 0;
+  --ptrain-radius-small: 0.25rem;
+  --ptrain-radius-card: 0.375rem;
+  --ptrain-radius-media: 0.5rem;
+  --ptrain-shadow-card: 0 18px 42px rgba(35, 20, 9, 0.08);
+
+  --max-width: var(--ptrain-container-max);
+  --border-radius: var(--ptrain-radius-card);
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --brand-primary: var(--ptrain-color-primary);
+  --brand-secondary: var(--ptrain-color-accent);
+  --background-site: var(--ptrain-color-background);
+  --background-site-rgb-value: 248, 244, 237;
+  --foreground-rgb: var(--ptrain-color-text-rgb);
+  --background-start-rgb: 248, 244, 237;
+  --background-end-rgb: 248, 244, 237;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
+    rgba(var(--ptrain-color-accent-rgb), 0.24) 0deg,
+    rgba(var(--ptrain-color-primary-rgb), 0.2) 80deg,
+    rgba(var(--ptrain-color-accent-rgb), 0.16) 190deg,
     transparent 360deg
   );
   --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
+    rgba(251, 248, 242, 1),
+    rgba(251, 248, 242, 0)
   );
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
+  --tile-start-rgb: 251, 248, 242;
+  --tile-end-rgb: 239, 232, 216;
   --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
+    rgba(var(--ptrain-color-text-rgb), 0.5),
+    rgba(var(--ptrain-color-accent-rgb), 0.35),
+    rgba(var(--ptrain-color-text-rgb), 0.12),
+    rgba(var(--ptrain-color-accent-rgb), 0.18),
+    rgba(var(--ptrain-color-text-rgb), 0.5)
   );
 
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+  --callout-rgb: 251, 248, 242;
+  --callout-border-rgb: 35, 20, 9;
+  --card-rgb: 251, 248, 242;
+  --card-border-rgb: 35, 20, 9;
 }
 
 * {
@@ -87,11 +109,12 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  color: white;
+  color: var(--ptrain-color-text);
 }
 
 body {
-  background-color: black;
+  background-color: var(--ptrain-color-background);
+  font-family: var(--ptrain-font-body);
 }
 
 a {
@@ -105,12 +128,6 @@ a {
   justify-content: space-between;
   position: relative;
   min-height: 100vh;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 @font-face {
@@ -244,11 +261,288 @@ main {
 }
 
 .main-font {
-  font-family: "Gilroy";
+  font-family: var(--ptrain-font-body);
+}
+
+.ds-section {
+  background: var(--ptrain-color-background);
+  color: var(--ptrain-color-text);
+  padding: var(--ptrain-section-padding-block)
+    var(--ptrain-section-padding-inline);
+}
+
+.ds-section--alt {
+  background: var(--ptrain-color-surface-alt);
+}
+
+.ds-section--primary {
+  background: var(--ptrain-color-primary);
+  color: var(--ptrain-color-cta-text);
+}
+
+.ds-container {
+  margin: 0 auto;
+  max-width: var(--ptrain-container-max);
+  width: 100%;
+}
+
+.ds-content {
+  max-width: var(--ptrain-content-max);
+}
+
+.ds-content--centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ds-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ptrain-card-gap);
+}
+
+.ds-two-column {
+  align-items: center;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.ds-responsive-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ptrain-card-gap);
+}
+
+.ds-display,
+.ds-section-heading,
+.ds-card-heading {
+  font-family: var(--ptrain-font-display);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.ds-display {
+  font-size: var(--ptrain-text-display);
+  line-height: var(--ptrain-line-display);
+}
+
+.ds-section-heading {
+  font-size: var(--ptrain-text-section);
+  line-height: var(--ptrain-line-heading);
+}
+
+.ds-body {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-body);
+  line-height: var(--ptrain-line-body);
+}
+
+.ds-small {
+  color: var(--ptrain-color-text-muted);
+  font-size: var(--ptrain-text-small);
+  line-height: 1.55;
+}
+
+.ds-eyebrow {
+  color: var(--ptrain-color-accent);
+  font-size: var(--ptrain-text-eyebrow);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ds-button,
+.ds-button-primary,
+.ds-button-secondary,
+.ds-button-text {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--ptrain-text-button);
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  min-height: 46px;
+  padding: var(--ptrain-button-padding-block)
+    var(--ptrain-button-padding-inline);
+  text-transform: uppercase;
+  transition: background-color 180ms ease, border-color 180ms ease,
+    color 180ms ease, opacity 180ms ease;
+}
+
+.ds-button-primary {
+  background: var(--ptrain-color-primary);
+  border: 1px solid var(--ptrain-color-primary);
+  color: var(--ptrain-color-cta-text);
+}
+
+.ds-button-primary:hover {
+  background: var(--ptrain-color-primary-hover);
+  border-color: var(--ptrain-color-primary-hover);
+}
+
+.ds-button-primary:active {
+  background: var(--ptrain-color-primary-active);
+  border-color: var(--ptrain-color-primary-active);
+}
+
+.ds-button-secondary {
+  background: transparent;
+  border: 1px solid var(--ptrain-color-border-strong);
+  color: var(--ptrain-color-text);
+}
+
+.ds-button-secondary:hover {
+  border-color: var(--ptrain-color-accent);
+  color: var(--ptrain-color-primary);
+}
+
+.ds-section--primary .ds-button-secondary {
+  border-color: rgba(248, 244, 237, 0.4);
+  color: var(--ptrain-color-cta-text);
+}
+
+.ds-section--primary .ds-button-secondary:hover {
+  background: rgba(248, 244, 237, 0.1);
+  border-color: var(--ptrain-color-cta-text);
+  color: var(--ptrain-color-cta-text);
+}
+
+.ds-button-text {
+  border-bottom: 2px solid var(--ptrain-color-primary);
+  color: var(--ptrain-color-primary);
+  min-height: auto;
+  padding: 0 0 0.25rem;
+}
+
+.ds-button-text:hover {
+  opacity: 0.72;
+}
+
+.ds-card,
+.ds-menu-card,
+.ds-trust-card,
+.ds-service-card,
+.ds-image-card {
+  background: var(--ptrain-color-surface);
+  border: 1px solid var(--ptrain-color-border);
+  border-radius: var(--ptrain-radius-card);
+  color: var(--ptrain-color-text);
+  overflow: hidden;
+}
+
+.ds-card,
+.ds-menu-card,
+.ds-trust-card,
+.ds-service-card {
+  padding: var(--ptrain-card-padding);
+}
+
+.ds-menu-card {
+  border-top: 3px solid var(--ptrain-color-accent);
+}
+
+.ds-trust-card {
+  background: transparent;
+}
+
+.ds-service-card:hover {
+  background: var(--ptrain-color-surface-alt);
+}
+
+.ds-image-card {
+  background: var(--ptrain-color-muted-surface);
+  padding: 0;
+}
+
+.ds-card-grid {
+  display: grid;
+  gap: var(--ptrain-card-gap);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ds-card-heading {
+  font-size: 1.5rem;
+  line-height: 1.12;
+}
+
+.ds-media {
+  background: var(--ptrain-color-muted-surface);
+  border-radius: var(--ptrain-radius-media);
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.ds-media > img,
+.ds-media > picture,
+.ds-media > video,
+.ds-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.ds-media-fill,
+.ds-media-fill > img,
+.ds-media-fill > picture,
+.ds-media-fill > video {
+  height: 100%;
+  width: 100%;
+}
+
+.ds-media-fill > img,
+.ds-media-fill > video {
+  object-fit: cover;
+}
+
+@keyframes ptrain-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ptrain-ticker 28s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
 }
 
 @media (max-width: 700px) {
+  :root {
+    --ptrain-text-display: 3.3rem;
+    --ptrain-text-section: 2.35rem;
+    --ptrain-card-padding: 1.25rem;
+  }
+
   main {
     padding-top: 30%;
+  }
+
+  .ds-section {
+    padding: var(--ptrain-section-padding-block-mobile)
+      var(--ptrain-section-padding-inline-mobile);
+  }
+
+  .ds-two-column,
+  .ds-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ds-button,
+  .ds-button-primary,
+  .ds-button-secondary {
+    padding-left: var(--ptrain-button-padding-mobile-inline);
+    padding-right: var(--ptrain-button-padding-mobile-inline);
+    width: 100%;
   }
 }

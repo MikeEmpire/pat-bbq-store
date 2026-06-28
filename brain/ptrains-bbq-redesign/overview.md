@@ -42,6 +42,14 @@ The export is valuable for visual direction, section structure, tokens, and poss
 - `modules/`: Small React utilities such as media query and dimension hooks.
 - `constants/`: Navigation links, breakpoints, and carousel image paths.
 
+## Homepage Architecture
+
+The homepage has a dedicated source-of-truth document:
+
+**`brain/frontend/homepage.md`**
+
+It defines the section order, each section's purpose and responsibilities, content strategy, SEO strategy, design principles, and agent rules. All homepage implementation work should start there.
+
 ## Guardrails
 
 - Do not copy the Figma app into production as a replacement.
