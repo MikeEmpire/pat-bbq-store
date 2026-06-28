@@ -26,7 +26,7 @@ Status values:
 | Catering Services | Complete | Implemented June 27, 2026. `components/ServicesSection/ServicesSection.tsx` + `ServicesSection.module.css`. 6 image-topped service cards in 3-column grid. Proof imagery (slideshow slides) integrated per card. Scroll-triggered entrance animations. All service routes built for future `/services/{id}` landing pages. Service list requires client confirmation before launch. |
 | Menu Preview | Complete | `components/MenuSection/MenuSection.tsx` + `MenuSection.module.css`. Tab-navigation layout (Smoked Meats / Signature Sides / Packages), split photo+list body panel, scroll-triggered entrance animations. All menu content flagged for client verification before launch. |
 | Gallery | Not started | Requires client-approved photography. Do not use Unsplash URLs from Figma export. |
-| Testimonials | Needs review | `components/TestimonialsSection/` is rendered at `#testimonials`, but all current testimonial entries are explicit placeholders. Replace with verified client reviews before launch. |
+| Testimonials | Complete | Updated June 28, 2026. Renders the supplied hardcoded Yelp reviews with consistent cards, safe profile-image fallbacks, expandable long reviews, and mobile horizontal scroll. Global lint and production build pass. |
 | Booking CTA | Complete | Implemented June 27, 2026. `components/BookingCTA/BookingCTA.tsx` + `BookingCTA.module.css`. Burgundy `.ds-section--primary` split layout. 7-field booking form submits to `contactFormURL`. Loading/success/error states, honeypot bot protection, accessible labels, scroll-triggered entrance animation. `id="booking"` anchor rendered. |
 | Footer | Complete | Implemented June 27, 2026. `components/Footer/Footer.tsx` fully redesigned: dark deep-brown bg, 3-column grid (Brand / Quick Links / Contact), verified social links (Yelp, Instagram, Facebook), phone CTA, Southern California service area, back-to-top button, copyright. |
 | Figma generated UI components | Audited | Reference only; not ready for wholesale migration. |
@@ -40,6 +40,6 @@ Status values:
 
 - Phone number conflict remains unresolved globally. Section 1 navigation intentionally kept the current app phone number `951-772-3910` as source of truth and did not use the Figma export number.
 - Email address `bookings@ptrainsbbq.com` appears only in the Figma export.
-- Testimonials and stats are unverified.
+- Figma testimonials and stats are unverified; the supplied hardcoded Yelp reviews are the production testimonial source.
 - Social URLs (Yelp, Instagram, Facebook) are verified — sourced from the previous production footer. Twitter icon exists in `/public/` but was not in the old footer and is excluded.
 - Figma about copy should be replaced or edited to preserve the real legacy story.

@@ -54,7 +54,7 @@ Every CTA on the page should support one of these two outcomes.
 | 4 | Catering Services | Interest | Complete (June 27, 2026) |
 | 5 | Menu Preview | Interest | In progress |
 | 6 | Gallery | Proof | Not started |
-| 7 | Testimonials | Proof | Implemented with placeholder content; not launch-ready |
+| 7 | Testimonials | Proof | Complete (June 28, 2026) |
 | 8 | Booking CTA | Action | Complete (June 27, 2026) |
 | 9 | Footer | — | Complete (June 27, 2026) |
 
@@ -276,15 +276,15 @@ Each service listed here is a long-term candidate for its own dedicated landing 
 
 **Content notes:**
 
-- All testimonials in the Figma export are generated placeholders and must not be published
-- Collect real testimonials from client before implementing this section
-- Consider linking testimonials to Google Reviews or Yelp once social URLs are verified
+- Reviews are the hardcoded Yelp entries in `constants/yelpreviews.ts`; do not replace them with Figma content or scraped data
+- Preserve reviewer names, review text, ratings, dates, locations, and supplied profile URLs
+- The Yelp business URL remains available in the verified production footer
 
 **Implementation:**
 
 - Component: `components/TestimonialsSection/TestimonialsSection.tsx`
 - Canonical anchor: `/#testimonials`
-- The current component contains explicit placeholder content and is not launch-ready until every review is replaced with verified client material
+- The component renders the supplied Yelp reviews as consistent cards with safe profile-image fallbacks and expandable long-form copy
 
 ---
 
@@ -361,7 +361,7 @@ The homepage is the canonical marketing experience. Shared navigation uses root-
 | About | `about` | Rendered |
 | Services | `services` | Rendered |
 | Menu | `menu` | Rendered |
-| Testimonials | `testimonials` | Rendered; content verification remains a launch gate |
+| Testimonials | `testimonials` | Rendered with supplied Yelp review content |
 | Contact / Footer | `contact` | Rendered |
 | Booking | `booking` | Rendered |
 
@@ -458,7 +458,7 @@ The homepage should feel **premium, modern, warm, intentional, and confident.**
 - Clutter from too many competing CTAs in a single viewport
 - Generic stock imagery as the primary visual subject
 - Overly rustic or "old western" styling
-- Unverified business claims (stats, testimonials, social links, email)
+- Unverified business claims (stats, Figma testimonials, social links, email)
 
 ---
 
@@ -472,7 +472,7 @@ The homepage should feel **premium, modern, warm, intentional, and confident.**
 
 4. **If a task conflicts with this architecture**, surface the conflict explicitly before implementing. Do not silently deviate.
 
-5. **Unverified content must stay out of production.** The phone number `951-772-3910` is verified. All other contact details, stats, testimonials, social links, and service area claims require client confirmation.
+5. **Unverified content must stay out of production.** The phone number `951-772-3910` and the user-supplied Yelp reviews are verified inputs for this implementation. Other contact details, stats, Figma testimonials, social links, and service area claims require client confirmation.
 
 6. **Each section should be implemented independently** — validate one section before starting the next.
 

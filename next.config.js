@@ -21,6 +21,7 @@ const nextConfig = {
     ];
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -29,6 +30,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3-media0.fl.yelpcdn.com",
+        pathname: "/photo/**",
       },
     ],
   },

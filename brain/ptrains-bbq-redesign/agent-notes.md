@@ -384,6 +384,31 @@ Added section-aware active states to the desktop and mobile Header navigation. R
 
 **Open questions:** None.
 
+## Testimonials Yelp Review Formatting — June 28, 2026
+
+**What was built:**
+Replaced the rendered placeholder testimonial array with the six supplied hardcoded Yelp reviews from `constants/yelpreviews.ts`. Standardized the cards, added reviewer profile images and attribution metadata, and added an accessible expand/collapse control for long reviews.
+
+**Key decisions:**
+- Review content remains data-driven in a typed exported constant so additional entries can be appended without changing the card component.
+- Yelp profile images use `next/image` with an exact HTTPS host allowlist in both component validation and `next.config.js`; missing, invalid, or failed images fall back to reviewer initials.
+- Mobile uses a horizontal scroll-snap row with a visible next-card peek; tablet and desktop retain two- and three-column grids.
+- The standalone Figma/Vite reference directory and empty test placeholders are excluded from the production TypeScript scope so reference-only dependencies and non-module stubs no longer block deploy checks.
+
+**Excluded content (unverified):**
+- No Figma testimonials, scraped Yelp content, or newly written reviews were added.
+
+**Dependencies introduced:** None.
+
+**Open questions:**
+- None.
+
+**Validation:**
+- Targeted lint passed for the testimonial component, Yelp data, and Next.js image configuration.
+- `npx tsc --noEmit` passed after production-scope exclusions.
+- `npm run lint` passed with no warnings or errors.
+- `npm run build` completed successfully after the Figma reference exclusion.
+
 ## Future Agent Guidance
 
 > **Homepage source of truth:** `brain/frontend/homepage.md`
@@ -391,7 +416,7 @@ Added section-aware active states to the desktop and mobile Header navigation. R
 > Read that document before making any homepage changes.
 
 - Navigation is complete; continue with one section at a time.
-- Gallery is the next unbuilt section. Testimonials is implemented but blocked on verified review content.
+- Gallery is the next unbuilt section. Testimonials now render the supplied hardcoded Yelp review content.
 - Before editing production, read the current target component and CSS Module.
 - Follow the documented one-page route decisions and preserve legacy page source files until future SEO pages are ready.
 - Do not import the full Figma dependency set.

@@ -1,115 +1,64 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { YELP_REVIEWS } from "../../constants/yelpreviews";
+import type { YelpReview } from "../../constants/yelpreviews";
 import styles from "./TestimonialsSection.module.css";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Testimonial data
-//
-// TODO: Replace ALL placeholder entries with real client-approved reviews
-// before launch. Collect from Yelp, Google Reviews, or direct client
-// correspondence. Preserve the data structure — only swap the content fields.
-//
-// Future phases can extend this array to 40+ testimonials and add:
-//   - filtering by eventType
-//   - pagination or progressive reveal
-//   - carousel/slider with accessible keyboard navigation
-//   - "Read more" expansion for long quotes
-//
-// See brain/ptrains-bbq-redesign/section-status.md for launch gate context.
-// ─────────────────────────────────────────────────────────────────────────────
+const YELP_IMAGE_HOST = "s3-media0.fl.yelpcdn.com";
+const COLLAPSED_REVIEW_LENGTH = 240;
 
-interface Testimonial {
-  id: string;
-  quote: string;
-  name: string;
-  eventType?: string; // e.g. "Corporate Event", "Wedding", "Private Party"
-  rating?: number;    // 1–5; omit to suppress star display
-  source?: string;    // display label: "Yelp", "Google", "Direct", etc.
-  featured?: boolean; // true = hero treatment (one at a time)
+function getSafeProfileUrl(profileUrl?: string): string | null {
+  if (!profileUrl) return null;
+
+  try {
+    const url = new URL(profileUrl);
+    return url.protocol === "https:" && url.hostname === YELP_IMAGE_HOST
+      ? url.toString()
+      : null;
+  } catch {
+    return null;
+  }
 }
 
-// TODO: Replace placeholder quotes and names with real verified client reviews.
-// Do not use generated, fabricated, or Figma-sourced testimonials in production.
-const TESTIMONIALS: Testimonial[] = [
-  // TODO: Replace — use the single most compelling verified client quote as the featured entry.
-  // Corporate, wedding, or recurring client preferred. Aim for 2–3 specific, warm sentences.
-  {
-    id: "featured-01",
-    quote:
-      "PLACEHOLDER — Replace with a real featured client testimonial before launch. This entry drives the large hero treatment. Choose a quote that names the event type, speaks to the food quality and professionalism, and gives hesitant visitors confidence to book.",
-    name: "Client Name",
-    eventType: "Corporate Event",
-    rating: 5,
-    source: "Google",
-    featured: true,
-  },
-  // TODO: Replace — collect from a real wedding or reception client
-  {
-    id: "tst-02",
-    quote:
-      "PLACEHOLDER — Replace with a real wedding or reception client testimonial before launch.",
-    name: "Client Name",
-    eventType: "Wedding Reception",
-    rating: 5,
-    source: "Yelp",
-  },
-  // TODO: Replace — collect from a real private party client
-  {
-    id: "tst-03",
-    quote:
-      "PLACEHOLDER — Replace with a real private party or birthday event client testimonial before launch.",
-    name: "Client Name",
-    eventType: "Private Party",
-    rating: 5,
-    source: "Google",
-  },
-  // TODO: Replace — collect from a real corporate or employee appreciation client
-  {
-    id: "tst-04",
-    quote:
-      "PLACEHOLDER — Replace with a real corporate catering or employee appreciation event testimonial before launch.",
-    name: "Client Name",
-    eventType: "Corporate Lunch",
-    rating: 5,
-    source: "Yelp",
-  },
-  // TODO: Replace — collect from a festival, public event, or large-scale catering client
-  {
-    id: "tst-05",
-    quote:
-      "PLACEHOLDER — Replace with a real festival or large public event client testimonial before launch.",
-    name: "Client Name",
-    eventType: "Festival",
-    rating: 5,
-    source: "Google",
-  },
-  // TODO: Replace — any event type; useful for demonstrating breadth of clientele
-  {
-    id: "tst-06",
-    quote:
-      "PLACEHOLDER — Replace with a real client testimonial before launch. Any event type is appropriate here.",
-    name: "Client Name",
-    eventType: "Holiday Party",
-    rating: 5,
-    source: "Direct",
-  },
-];
+function getInitials(name: string): string {
+  return name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Sub-components
-// ─────────────────────────────────────────────────────────────────────────────
+function formatReviewDate(date: string): string {
+  const [year, month, day] = date.split("-");
+  const parsedDate = new Date(
+    Date.UTC(Number(year), Number(month) - 1, Number(day))
+  );
+
+  if (Number.isNaN(parsedDate.getTime())) return date;
+
+  return new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "short",
+    timeZone: "UTC",
+    year: "numeric",
+  }).format(parsedDate);
+}
 
 function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
+  const safeRating = Math.min(Math.max(Math.round(rating), 0), max);
+
   return (
     <div
       className={styles.stars}
-      aria-label={`${rating} out of ${max} stars`}
+      aria-label={`${safeRating} out of ${max} stars`}
       role="img"
     >
-      {Array.from({ length: max }, (_, i) => (
+      {Array.from({ length: max }, (_, index) => (
         <span
-          key={i}
-          className={i < rating ? styles.starFilled : styles.starEmpty}
+          key={index}
+          className={index < safeRating ? styles.starFilled : styles.starEmpty}
           aria-hidden="true"
         >
           ★
@@ -119,51 +68,103 @@ function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
   );
 }
 
-function SourceBadge({ source }: { source: string }) {
-  return <span className={styles.sourceBadge}>{source}</span>;
+function ReviewerAvatar({
+  name,
+  profileUrl,
+}: {
+  name: string;
+  profileUrl?: string;
+}) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const safeProfileUrl = getSafeProfileUrl(profileUrl);
+
+  if (!safeProfileUrl || imageFailed) {
+    return (
+      <span className={styles.avatarFallback} aria-hidden="true">
+        {getInitials(name)}
+      </span>
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={`${name} Yelp profile`}
+      className={styles.avatar}
+      height={52}
+      onError={() => setImageFailed(true)}
+      src={safeProfileUrl}
+      width={52}
+    />
+  );
 }
 
 function TestimonialCard({
-  testimonial,
+  review,
   delay,
 }: {
-  testimonial: Testimonial;
+  review: YelpReview;
   delay: number;
 }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLongReview = review.user_review.length > COLLAPSED_REVIEW_LENGTH;
+
   return (
     <article
-      className={styles.card}
+      className={`ds-card ${styles.card}`}
       style={{ "--delay": `${delay}ms` } as React.CSSProperties}
-      aria-label={`Testimonial from ${testimonial.name}${testimonial.eventType ? `, ${testimonial.eventType}` : ""}`}
     >
-      {testimonial.rating !== undefined && (
-        <StarRating rating={testimonial.rating} />
-      )}
-      <blockquote className={styles.cardQuote}>
-        <p>{testimonial.quote}</p>
+      <div className={styles.cardTopline}>
+        <StarRating rating={review.user_rating} />
+        <span className={styles.sourceBadge}>{review.source}</span>
+      </div>
+
+      <blockquote
+        className={`${styles.cardQuote} ${
+          isLongReview && !expanded ? styles.cardQuoteCollapsed : ""
+        }`}
+      >
+        <p>{review.user_review}</p>
       </blockquote>
+
+      {isLongReview && (
+        <button
+          aria-expanded={expanded}
+          className={styles.expandButton}
+          onClick={() => setExpanded((current) => !current)}
+          type="button"
+        >
+          {expanded ? "Show less" : "Read full review"}
+        </button>
+      )}
+
       <footer className={styles.cardFooter}>
-        <span className={styles.cardName}>{testimonial.name}</span>
-        {testimonial.eventType && (
-          <span className={styles.cardEventType}>{testimonial.eventType}</span>
-        )}
-        {testimonial.source && <SourceBadge source={testimonial.source} />}
+        <ReviewerAvatar
+          name={review.user_name}
+          profileUrl={review.user_profile}
+        />
+        <div className={styles.reviewerDetails}>
+          <cite className={styles.cardName}>{review.user_name}</cite>
+          {review.user_location && (
+            <span className={styles.cardLocation}>{review.user_location}</span>
+          )}
+          <time className={styles.cardDate} dateTime={review.user_date}>
+            {formatReviewDate(review.user_date)}
+          </time>
+        </div>
       </footer>
     </article>
   );
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Section
-// ─────────────────────────────────────────────────────────────────────────────
 
 function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
+    const element = sectionRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -173,12 +174,10 @@ function TestimonialsSection() {
       },
       { threshold: 0.1 }
     );
-    observer.observe(el);
+
+    observer.observe(element);
     return () => observer.disconnect();
   }, []);
-
-  const featured = TESTIMONIALS.find((t) => t.featured);
-  const supporting = TESTIMONIALS.filter((t) => !t.featured);
 
   return (
     <section
@@ -188,67 +187,32 @@ function TestimonialsSection() {
       className={`${styles.section} ${visible ? styles.visible : ""}`}
       aria-labelledby="testimonials-heading"
     >
-      <div className={styles.container}>
-
-        {/* ── Section header ─────────────────────────────── */}
+      <div className={`ds-container ${styles.container}`}>
         <header
           className={styles.header}
           style={{ "--delay": "0ms" } as React.CSSProperties}
         >
-          <p className={styles.eyebrow}>What Clients Say</p>
-          <h2 id="testimonials-heading" className={styles.heading}>
-            Trusted by Hundreds
-            <span className={styles.headingAccent}> of Happy Guests</span>
+          <p className="ds-eyebrow">What Clients Say</p>
+          <h2
+            id="testimonials-heading"
+            className={`ds-section-heading ${styles.heading}`}
+          >
+            Straight from Our Guests
           </h2>
-          <p className={styles.intro}>
-            From intimate backyard gatherings to large corporate events — real
-            feedback from the people we&apos;ve had the honor of serving.
+          <p className="ds-body">
+            Yelp reviews from people who have experienced PTrain&apos;s BBQ.
           </p>
         </header>
 
-        {/* ── Featured testimonial ───────────────────────── */}
-        {featured && (
-          <div
-            className={styles.featuredWrapper}
-            style={{ "--delay": "120ms" } as React.CSSProperties}
-          >
-            <div className={styles.featuredInner} aria-label={`Featured testimonial from ${featured.name}${featured.eventType ? `, ${featured.eventType}` : ""}`}>
-              <span className={styles.featuredDecorQuote} aria-hidden="true">
-                &ldquo;
-              </span>
-              {featured.rating !== undefined && (
-                <StarRating rating={featured.rating} />
-              )}
-              <blockquote className={styles.featuredQuote}>
-                <p>{featured.quote}</p>
-              </blockquote>
-              <footer className={styles.featuredFooter}>
-                <span className={styles.featuredRule} aria-hidden="true" />
-                <div className={styles.featuredAttribution}>
-                  <span className={styles.featuredName}>{featured.name}</span>
-                  {featured.eventType && (
-                    <span className={styles.featuredEventType}>
-                      {featured.eventType}
-                    </span>
-                  )}
-                  {featured.source && <SourceBadge source={featured.source} />}
-                </div>
-              </footer>
-            </div>
-          </div>
-        )}
-
-        {/* ── Supporting testimonial grid ────────────────── */}
-        <div className={styles.grid} aria-label="More client testimonials">
-          {supporting.map((testimonial, i) => (
+        <div className={styles.grid} aria-label="Client reviews">
+          {YELP_REVIEWS.map((review, index) => (
             <TestimonialCard
-              key={testimonial.id}
-              testimonial={testimonial}
-              delay={240 + i * 80}
+              key={`${review.user_name}-${review.user_date}`}
+              review={review}
+              delay={120 + index * 70}
             />
           ))}
         </div>
-
       </div>
     </section>
   );
