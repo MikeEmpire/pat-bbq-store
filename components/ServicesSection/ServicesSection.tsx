@@ -20,26 +20,26 @@ const SERVICES: Service[] = [
   {
     id: "weddings",
     number: "01",
-    title: "Weddings",
-    body: "From intimate ceremonies to grand receptions, we bring real wood-smoked BBQ to your most important day.",
+    title: "Wedding Catering",
+    body: "From intimate ceremonies to grand receptions, we deliver wood-smoked wedding catering your guests will be talking about long after the last plate is cleared.",
   },
   {
     id: "corporate",
     number: "02",
-    title: "Corporate Events",
-    body: "Team lunches to company-wide celebrations. Professional setup so you can focus on your people.",
+    title: "Corporate Catering",
+    body: "Corporate BBQ catering for company lunches, employee appreciation events, holiday parties, and team celebrations. Professional setup, on-time service, and food that actually impresses.",
   },
   {
     id: "private-parties",
     number: "03",
-    title: "Private Parties",
-    body: "Birthdays, graduations, family reunions — the food that brings everyone to the table.",
+    title: "Private Events",
+    body: "Birthdays, graduations, family reunions, and private parties — the food that brings everyone to the table, no matter the size of the crowd.",
   },
   {
     id: "festivals",
     number: "04",
-    title: "Festivals & Fairs",
-    body: "High-volume service for public events and community festivals across Southern California.",
+    title: "Festivals & Community Events",
+    body: "High-volume festival catering and large-scale event service for public gatherings and community celebrations across Southern California.",
   },
 ];
 
@@ -95,9 +95,10 @@ function ServicesSection() {
           </div>
           <div className={styles.headerRight}>
             <p className={styles.headerBody}>
-              PTrain&apos;s BBQ brings real wood-smoked flavor to events across
-              Southern California — from intimate gatherings to large-scale
-              celebrations. Whatever the occasion, we have catered it.
+              PTrain&apos;s BBQ brings authentic wood-smoked flavor to corporate
+              catering, weddings, festivals, and private events across Southern
+              California. From business lunches to large-scale celebrations —
+              whatever the occasion, we&apos;ve got it covered.
             </p>
           </div>
         </div>

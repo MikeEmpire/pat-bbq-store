@@ -52,8 +52,8 @@ function AboutSection() {
               className={styles.heading}
               style={{ "--delay": "60ms" } as React.CSSProperties}
             >
-              A Legacy Worth
-              <span className={styles.headingAccent}> Carrying Forward</span>
+              Rooted in Family.
+              <span className={styles.headingAccent}> Built on Craft.</span>
             </h2>
 
             {/* Beat 1 — the origin */}
@@ -61,33 +61,34 @@ function AboutSection() {
               className={styles.body}
               style={{ "--delay": "150ms" } as React.CSSProperties}
             >
-              For us, PTrain&apos;s BBQ is a legacy that is an honor to
-              represent. What started as Pat &ldquo;PTrain&rdquo;
-              Patterson&apos;s dream of serving real wood-smoked BBQ, his
-              original sauces, and the perfect Tri Tip sandwich has turned
-              into so much more.
+              PTrain&apos;s BBQ was born from a simple belief: that real
+              wood-smoked barbecue, made with patience and care, brings people
+              together. What started as Pat &ldquo;PTrain&rdquo;
+              Patterson&apos;s dream &mdash; authentic sauces, slow-smoked
+              meats, and the perfect Tri Tip sandwich &mdash; has grown into
+              one of Southern California&apos;s most trusted names in catering.
             </p>
 
-            {/* Beat 2 — the inherited wisdom */}
+            {/* Beat 2 — the craft */}
             <blockquote
               className={styles.pullQuote}
               style={{ "--delay": "230ms" } as React.CSSProperties}
             >
-              He taught us that with hard work, patience, and love, you can
-              achieve any dream that you have.
+              Real BBQ takes time. We&apos;ve been perfecting ours for over
+              two decades.
             </blockquote>
 
-            {/* Beat 3 — the continuation */}
+            {/* Beat 3 — the experience */}
             <p
               className={styles.body}
               style={{ "--delay": "310ms" } as React.CSSProperties}
             >
-              When our dad was diagnosed with cancer and passed away suddenly
-              in 2021, it was a no-brainer to continue that dream. I&apos;ve
-              been smoking BBQ since I was 11 &mdash; early mornings and late
-              nights with my dad. We worked festivals, lunches, weddings,
-              football games, and conventions, learning the invaluable skills
-              he left us with.
+              From backyard cookouts to large-scale catering events, our team
+              has spent years behind the pit mastering the low-and-slow craft
+              that defines Southern BBQ. We&apos;ve served corporate lunches,
+              wedding receptions, employee appreciation events, community
+              festivals, and private parties &mdash; always with the same
+              commitment to quality, hospitality, and food that people remember.
             </p>
 
             <div

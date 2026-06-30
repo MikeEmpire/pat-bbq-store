@@ -78,8 +78,9 @@ function HeroSection() {
           className={`${styles.body} ${styles.revealFade}`}
           style={{ "--delay": "480ms" } as React.CSSProperties}
         >
-          Authentic Southern-style smoke for weddings, corporate events, and
-          celebrations of every size — served with family-owned hospitality.
+          Premium wood-smoked BBQ catering for corporate events, weddings,
+          festivals, and private parties across Southern California — served
+          with family-owned hospitality.
         </p>
 
         <div
