@@ -1,5 +1,5 @@
-import ContactForm from "../../components/ContactForm/ContactForm";
+import BookingCTA from "../../components/BookingCTA/BookingCTA";
 
 export default function ContactFormPage(): JSX.Element {
-  return <ContactForm />;
+  return <BookingCTA />
 }
