@@ -83,6 +83,8 @@ export default function BookingCTA(): JSX.Element {
       name: name.trim(),
       email: email.trim(),
       phoneNumber: phone.trim(),
+      eventDate: eventDate.trim(),
+      numberOfGuests: parseInt(guestCount) || 0,
       message: fullMessage,
     };
 

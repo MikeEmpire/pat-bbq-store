@@ -35,6 +35,8 @@ export interface PTrainMenuLink {
 
 export interface ContactFormData {
   name: string;
+  eventDate: string;
+  numberOfGuests: number;
   email: string;
   phoneNumber: string;
   message: string;
